@@ -1,0 +1,21 @@
+{
+  "name": "Project",
+  "type": "module",
+  "devDependencies": {
+    "@types/supertest": "^6.0.2",
+    "@wdio/allure-reporter": "^8.39.0",
+    "@wdio/cli": "^8.39.1",
+    "@wdio/cucumber-framework": "^8.39.0",
+    "@wdio/local-runner": "^8.39.1",
+    "@wdio/spec-reporter": "^8.39.0",
+    "allure-commandline": "^2.29.0",
+    "supertest": "^7.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
+  },
+  "scripts": {
+    "wdio": "wdio run ./wdio.conf.ts",
+    "report": "allure generate allure-results --clean && allure open",
+    "test": "wdio run ./wdio.conf.ts --cucumberOpts.tagExpression:'@swe'"
+  }
+}
