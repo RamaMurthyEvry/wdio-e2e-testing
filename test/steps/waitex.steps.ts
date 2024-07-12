@@ -1,5 +1,6 @@
-import { Given, When, Then } from '@cucumber/cucumber'
-import waitexpage from "../../src/pages/waitex.page.ts"
+import { Given, When, Then } from '@cucumber/cucumber';
+import waitexpage from "../../src/pages/waitex.page.ts";
+import waitexcontrol from "../../src/pages/waitex.control.ts";
 import assertions from '../../src/utils/assertions.ts';
 import { addLog } from '../../src/utils/commands.ts';
 
@@ -19,10 +20,10 @@ Then(/^I validate loading icon$/, async () => {
     await waitexpage.waitForLoadingIconToDisappear();
     await waitexpage.waitForMessage();
     await browser.waitUntil(async () =>
-        await waitexpage.msg.getText() === 'Hello World!',
+        await waitexcontrol.msg.getText() === 'Hello World!',
         {
             timeout: 10000,
             timeoutMsg: "Element is not displayed in 10 sec"
         })
-    await assertions.toBeDisplayed(waitexpage.msg)
+    await assertions.toBeDisplayed(waitexcontrol.msg)
 })
