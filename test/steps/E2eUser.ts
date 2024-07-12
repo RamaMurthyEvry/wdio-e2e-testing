@@ -1,12 +1,12 @@
 import { Given, When, Then } from '@cucumber/cucumber'
-import { BASE_URI } from '../../src/config/APIConfig.ts';
+import { baseUri } from '../../src/config/APIConfig.ts';
 import UsersPage from '../../src/pages/Users.page.ts';
 import supertest from 'supertest';
 import { APICalls } from '../../src/enums/APICalls.ts';
 import assertions from '../../src/utils/Assertions.ts';
 import { addLog } from '../../src/utils/Commands.ts';
 
-const request = supertest(BASE_URI)
+const request = supertest(baseUri)
 let response: supertest.Response;
 
 const payload = {
@@ -20,7 +20,7 @@ Given(/^I am on page (.+)$/, async (pageurl: string) => {
 
 When(/^I perform (.+) user search$/, async (endpoint: string) => {
     await UsersPage.selectMethod(APICalls.GET)
-    await UsersPage.enterAPIUrl(BASE_URI + endpoint);
+    await UsersPage.enterAPIUrl(baseUri + endpoint);
     await UsersPage.clickOnAjaxBtn();
 })
 
@@ -34,14 +34,14 @@ Then(/^I validate the search result$/, async () => {
     const ui_response = JSON.parse(await UsersPage.getOutputText());
 
     assertions.toContain(ui_status, response.statusCode.toString())
-    assertions.toEqual(JSON.stringify(ui_response), JSON.stringify(response.body))
+    assertions.toEqual(JSON.stringify(ui_response),JSON.stringify(response.body))
     assertions.toEqual(ui_response.data.email, response.body.data.email)
 })
 
 
 When(/^I perform create use search for api (.+)$/, async (service: string) => {
     await UsersPage.selectMethod(APICalls.POST)
-    await UsersPage.enterAPIUrl(BASE_URI + service);
+    await UsersPage.enterAPIUrl(baseUri + service);
     await UsersPage.clickOnAddParamBtn()
     await UsersPage.enterFirstParams("name", payload.name)
     await UsersPage.clickOnAddParamBtn()

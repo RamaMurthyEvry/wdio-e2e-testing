@@ -1,17 +1,17 @@
 import { click, setText } from '../utils/Commands.ts';
-import Page from './page.ts';
-import loginControls from './login.controls.ts'
+import Page from './Page.ts';
+import loginControls from './Login.controls.ts'
 
 
 class LoginPage extends Page {
 
-    async login (userName: string, password: string) {
+    async login(userName: string, password: string) {
         await setText(loginControls.inputUsername, userName);
         await setText(loginControls.inputPassword, password)
         await click(loginControls.btnSubmit);
     }
-  
-    open () {
+
+    open() {
         return super.open('login');
     }
 }

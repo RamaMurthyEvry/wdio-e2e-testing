@@ -1,5 +1,5 @@
 import { setText } from "../utils/Commands.ts"
-import formControls from "./form.contols.ts"
+import formControls from "./Form.contols.ts"
 
 class FormPage {
    

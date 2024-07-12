@@ -1,6 +1,4 @@
-/**
- * sub page containing specific selectors and methods for a specific page
- */
+import { $ } from '@wdio/globals';
 class SecurePage {
     /**
      * define selectors using getter methods
