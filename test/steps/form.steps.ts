@@ -1,9 +1,9 @@
 import {Given, When} from "@cucumber/cucumber"
 import formPage from "../../src/pages/form.page.ts"
-import formdata from "../../test/resources/formdata.json" assert { type: 'json' };
-import { parseJsonFile } from "../../src/utils/fileutils.ts";
-import { RESOURCE_FOLDER_PATH } from "../../src/constants/pathconst.ts";
-import { addLog } from "../../src/utils/commands.ts";
+import formdata from "../resources/formdata.json" assert { type: 'json' };
+import { parseJsonFile } from "../../src/utils/FileUtils.ts";
+import { RESOURCE_FOLDER_PATH } from "../../src/constants/PathConst.ts";
+import { addLog } from "../../src/utils/Commands.ts";
 
 Given("I am on form page {string}", async(pageurl:string)=> {
     await browser.url(pageurl);

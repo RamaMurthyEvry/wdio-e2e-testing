@@ -1,10 +1,10 @@
 import { When, Then } from "@cucumber/cucumber";
 import * as fs from 'fs';
 import path from 'path';
-import { DOWNLOAD_FOLDER_PATH } from "../../src/constants/pathconst.ts";
-import assertions from "../../src/utils/assertions.ts";
-import { click } from "../../src/utils/commands.ts";
-import { deleteDirectory } from "../../src/utils/fileutils.ts";
+import { DOWNLOAD_FOLDER_PATH } from "../../src/constants/PathConst.ts";
+import assertions from "../../src/utils/Assertions.ts";
+import { click } from "../../src/utils/Commands.ts";
+import { deleteDirectory } from "../../src/utils/FileUtils.ts";
 
 When(/^I click on first file$/, async ()=> {
     await fs.mkdirSync(DOWNLOAD_FOLDER_PATH);

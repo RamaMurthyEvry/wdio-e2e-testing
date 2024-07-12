@@ -1,8 +1,15 @@
+<<<<<<< Updated upstream
 import { Given, When, Then } from '@cucumber/cucumber';
 import waitexpage from "../../src/pages/waitex.page.ts";
 import waitexcontrol from "../../src/pages/waitex.control.ts";
 import assertions from '../../src/utils/assertions.ts';
 import { addLog } from '../../src/utils/commands.ts';
+=======
+import { Given, When, Then } from '@cucumber/cucumber'
+import waitexpage from "../../src/pages/waitex.page.ts"
+import assertions from '../../src/utils/Assertions.ts';
+import { addLog } from '../../src/utils/Commands.ts';
+>>>>>>> Stashed changes
 
 Given(/^I am on dynamic loading (.+) page$/, async (appurl: string) => {
     await browser.maximizeWindow()

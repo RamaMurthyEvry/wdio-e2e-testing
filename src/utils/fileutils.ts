@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { addLog } from './commands.ts';
+import { addLog } from './Commands.ts';
 
 export const parseJsonFile = (datapath:string)=> {
     let data = fs.readFileSync(datapath, "utf-8");

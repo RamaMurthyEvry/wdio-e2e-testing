@@ -1,5 +1,5 @@
 import { ChainablePromiseElement } from "webdriverio"
-import { addLog } from "./commands.ts"
+import { addLog } from "./Commands.ts"
 
 class Assertion {
 

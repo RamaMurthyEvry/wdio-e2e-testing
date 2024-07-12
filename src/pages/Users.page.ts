@@ -1,5 +1,5 @@
 import { APICalls } from "../../src/enums/APICalls.ts";
-import { addLog, click, selectVisibleText, setText } from "../../src/utils/commands.ts";
+import { addLog, click, selectVisibleText, setText } from "../utils/Commands.ts";
 import Page from "./page.ts";
 import usersPage from "../../src/pages/Users.control.ts";
 

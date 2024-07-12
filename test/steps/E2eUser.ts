@@ -3,8 +3,8 @@ import { BASE_URI } from '../../src/config/APIConfig.ts';
 import UsersPage from '../../src/pages/Users.page.ts';
 import supertest from 'supertest';
 import { APICalls } from '../../src/enums/APICalls.ts';
-import assertions from '../../src/utils/assertions.ts';
-import { addLog } from '../../src/utils/commands.ts';
+import assertions from '../../src/utils/Assertions.ts';
+import { addLog } from '../../src/utils/Commands.ts';
 
 const request = supertest(BASE_URI)
 let response: supertest.Response;

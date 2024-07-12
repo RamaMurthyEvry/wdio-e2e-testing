@@ -1,8 +1,13 @@
 import { Given, When, Then } from '@cucumber/cucumber';
 
 import LoginPage from '../../src/pages/login.page.ts';
+<<<<<<< Updated upstream
 import securepage from '../../src/pages/secure.control.ts';
 import assertions from '../../src/utils/assertions.ts';
+=======
+import SecurePage from '../../src/pages/secure.page.ts';
+import assertions from '../../src/utils/Assertions.ts';
+>>>>>>> Stashed changes
 
 // const pages = {
 //     login: LoginPage

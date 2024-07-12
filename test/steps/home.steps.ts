@@ -1,6 +1,6 @@
 import { Given, Then } from '@cucumber/cucumber'
-import assertions from '../../src/utils/assertions.ts';
-import { addLog } from '../../src/utils/commands.ts';
+import assertions from '../../src/utils/Assertions.ts';
+import { addLog } from '../../src/utils/Commands.ts';
 
 Given(/^I open the browser and load the url (.+)$/, async (homepageurl: string) => {
     await browser.url(homepageurl)
