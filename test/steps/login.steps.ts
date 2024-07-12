@@ -1,8 +1,8 @@
 import { Given, When, Then } from '@cucumber/cucumber';
 
-import LoginPage from '../../src/pages/login.page.ts';
-import securepage from '../../src/pages/secure.control.ts';
-import assertions from '../../src/utils/assertions.ts';
+import LoginPage from '../../src/pages/Login.page.ts';
+import SecurePage from '../../src/pages/secure.control.ts';
+import assertions from '../../src/utils/Assertions.ts';
 
 // const pages = {
 //     login: LoginPage
@@ -18,6 +18,6 @@ When(/^I login with (\w+) and (.+)$/, async (username:string, password:string) =
 });
 
 Then(/^I should see a flash message saying (.*)$/, async (message:string) => {
-    await assertions.toBeExisting(securepage.flashAlert)
-    await assertions.toHaveTextContain(securepage.flashAlert, message)
+    await assertions.toBeExisting(SecurePage.flashAlert)
+    await assertions.toHaveTextContain(SecurePage.flashAlert, message)
 });

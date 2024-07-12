@@ -1,8 +1,8 @@
 import { Given, When, Then } from '@cucumber/cucumber';
-import waitexpage from "../../src/pages/waitex.page.ts";
-import waitexcontrol from "../../src/pages/waitex.control.ts";
-import assertions from '../../src/utils/assertions.ts';
-import { addLog } from '../../src/utils/commands.ts';
+import waitexpage from "../../src/pages/Waitex.page.ts";
+import waitexcontrol from "../../src/pages/Waitex.control.ts";
+import assertions from '../../src/utils/Assertions.ts';
+import { addLog } from '../../src/utils/Commands.ts';
 
 Given(/^I am on dynamic loading (.+) page$/, async (appurl: string) => {
     await browser.maximizeWindow()

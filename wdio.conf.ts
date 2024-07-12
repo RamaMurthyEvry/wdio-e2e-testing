@@ -1,7 +1,7 @@
 import type { Options } from '@wdio/types'
 // import path from 'path';
 import * as fs from 'fs';
-import { DOWNLOAD_FOLDER_PATH } from './src/constants/pathconst';
+import { DOWNLOAD_FOLDER_PATH } from './src/constants/PathConst';
 export const config: Options.Testrunner = {
     //
     // ====================

@@ -1,5 +1,5 @@
 import { Given, Then } from '@cucumber/cucumber'
-import { addLog } from '../../src/utils/commands.ts';
+import { addLog } from '../../src/utils/Commands.ts';
 
 Given(/^I open app url$/, async () => {
     await browser.maximizeWindow()

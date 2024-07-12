@@ -1,29 +1,25 @@
-import { setText } from "../../src/utils/commands.ts"
-import { $ } from '@wdio/globals';
+import { setText } from "../utils/Commands.ts"
+import formControls from "./Form.contols.ts"
 
 class FormPage {
-    public get firstname() { return $("#firstName") }
-    private get lastname() { return $("#lastName") }
-    private get useremail() { return $("#userEmail") }
-    private get mobile() { return $("#userNumber") }
-    private get subject() { return $("#subjectsInput") }
-    //private get address() { return $("#currentAddress") }
+   
+    
 
-    async setnames(fname:string, lname:string) {
-       await setText(this.firstname, fname);
-       await setText(this.lastname, lname);
+    async setNames(fname:string, lname:string) {
+       await setText(formControls.firstName, fname);
+       await setText(formControls.lastName, lname);
     }
 
     async setEmail(email:string) {
-        await setText(this.useremail, email)
+        await setText(formControls.userEmail, email)
     }
 
     async setSubject(subject:string) {
-        await setText(this.subject, subject);
+        await setText(formControls.subject, subject);
     }
 
     async setMobileNumber(mobnum:string) {
-        await setText(this.mobile, mobnum);
+        await setText(formControls.mobile, mobnum);
     }
 }
 export default new FormPage()

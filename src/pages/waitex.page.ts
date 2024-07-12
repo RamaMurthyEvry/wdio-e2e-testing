@@ -1,6 +1,6 @@
-import { addLog, click } from "../utils/commands.ts"
-import waitexpage from "../../src/pages/waitex.control.ts"
-import Page from "./page.ts";
+import { addLog, click } from "../utils/Commands.ts"
+import waitexpage from "./Waitex.control.ts"
+import Page from "./Page.ts";
 
 
 class WaitEx extends Page {
