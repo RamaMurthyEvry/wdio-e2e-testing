@@ -7,9 +7,6 @@ export const addLog = (log:string) => {
     console.log(`STEP: ${log}`)
 }
 
-<<<<<<< Updated upstream
-export const selectDropdown = async(elements:ChainablePromiseArray<ElementArray>, value:string)=> {
-=======
 export const isTextPresentInLocator = async (locator: ChainablePromiseElement<WebdriverIO.Element>, textToCheck: string): Promise<boolean> => {
     try {
         const elementText = await locator.getText();
@@ -26,8 +23,10 @@ export const openUrl = async (path: string) => {
 }
 
 export const selectDropdown = async (elements: ChainablePromiseArray<ElementArray>, value: string) => {
->>>>>>> Stashed changes
-    for (let i = 0; i < (await elements).length; i++) {
+    
+
+
+for (let i = 0; i < (await elements).length; i++) {
         const elem = await  elements[i].getAttribute('value');
         if (elem === value) {
             await elements[i].click()
