@@ -9,11 +9,11 @@ class HomePage{
        expect(isPresent).toBe(true);
     }
 
-    searchProduct(product:string)
+   async searchProduct(product:string)
     {
-    setText(HomePageControl.searchinputfield,product)
-	HomePageControl.searchButton.click();
-	browser.pause(20000);
+    await setText(HomePageControl.searchinputfield,product)
+	await HomePageControl.searchButton.click();
+	await browser.pause(1000);
     }
 
 }
