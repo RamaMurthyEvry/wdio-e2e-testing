@@ -9,5 +9,5 @@ Feature: Amazon product search functionality
             #Then Verify that the product name appears in the search results
 
             Examples:
-                  | pageUrl               | user  | productName    | locator                                    |
-                  | https://www.amazon.in | Hello | Samsung M34 5G | //*[@id="nav-link-accountList-nav-line-1"] |
+                  | pageUrl               | user  | productName    |
+                  | https://www.amazon.in | Hello | Samsung M34 5G | 

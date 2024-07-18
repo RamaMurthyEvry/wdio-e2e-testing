@@ -3,9 +3,9 @@ import  HomePageControl  from '../amazon-controls/home.control.ts';
 import {setText} from '../../../src/utils/Commands.ts';
 class HomePage{
 
-    verifyUserName(text:string)
+   async verifyUserName (text:string)
     {
-       const isPresent = isTextPresentInLocator(HomePageControl.helloUserText,text);
+       const isPresent = await isTextPresentInLocator(HomePageControl.helloUserText,text);
        expect(isPresent).toBe(true);
     }
 
