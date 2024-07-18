@@ -2,7 +2,7 @@
 
     "cucumberautocomplete.steps":[ 
 
-    "./test/steps/*.ts" 
+    "./test/steps/**/*.ts" 
 
     ], 
 
