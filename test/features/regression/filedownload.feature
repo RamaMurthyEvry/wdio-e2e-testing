@@ -9,3 +9,5 @@ Feature: Validate download functionality
         Examples:
             | PageUrl                                     |
             | https://the-internet.herokuapp.com/download |
+
+    Scenario: Testing
