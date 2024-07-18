@@ -9,7 +9,7 @@ export const addLog = (log: string) => {
 
 export const openUrl = async (path: string) => {
     addLog(`Opening App: ${path}`)
-    return browser.url(path)
+    return await browser.url(path)
 }
 
 export const selectDropdown = async (elements: ChainablePromiseArray<ElementArray>, value: string) => {
