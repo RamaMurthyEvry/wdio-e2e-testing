@@ -1,5 +1,6 @@
 import { Then } from '@cucumber/cucumber';
 import cartPage from '../../../src/pages/amazon-pages/cart.page.ts'
+import searchResultControl from '../../../src/pages/amazon-controls/searchResult.control.ts';
 
 
 Then(/^user filter the product by price between Rs "([^"]*)" – "([^"]*)"$/, async (option1: string, option2: string) => {
@@ -11,15 +12,12 @@ Then(/^user filter the product by price between Rs "([^"]*)" – "([^"]*)"$/, as
 });
 
 Then(/^Verify that all displayed products fall within the specified price range Rs "([^"]*)" – "([^"]*)"$/, async (min: string, max: string) => {
-    const lowerprice = await $(`//div/label[@aria-label='Minimum']/span[text()='${min}']`);
-    const highprice = await $(`//div/label[@aria-label='Maximum']/span[text()='${max}']`);
-    const lower = await lowerprice.getText();
-    const high = await highprice.getText();
+    const lower = await searchResultControl.lowerprice.getText();
+    const high = await searchResultControl.highprice.getText();
     await expect(high).toEqual(max);
     await expect(lower).toEqual(min);
 
 });
-
 
 Then(/^user select one product and go to product details screen$/, async () => {
     await cartPage.searchProductclick();
