@@ -6,6 +6,26 @@ export const addLog = (log: string) => {
     report.addStep(`STEP: ${log}`)
     console.log(`STEP: ${log}`)
 }
+export const getAllProductDetails = async (locator: ChainablePromiseArray<WebdriverIO.ElementArray>, text: string) => {
+    try {
+        let count = 0;
+        for (let i = 0; i < (await locator).length; i++) {
+            let prodDescription: string = await locator[i].getText();
+            if (prodDescription.includes(text)) {
+                count = count + 1;
+                console.log("Printing product name: " + prodDescription)
+            }
+
+        }
+        if (count == 0)
+            return false;
+        else
+            console.log(count)
+        return true;
+    } catch (error) {
+        console.error(`Error in getAllProductNames: ${error}`);
+    }
+}
 
 export const isTextPresentInLocator = async (locator: ChainablePromiseElement<WebdriverIO.Element>, textToCheck: string): Promise<boolean> => {
     try {
@@ -29,12 +49,11 @@ export const isTextMatchInLocator = async (locator: ChainablePromiseElement<Webd
 
 export const openUrl = async (path: string) => {
     addLog(`Opening App: ${path}`)
-    return await browser.url(path)
+    await browser.url(path)
+    await browser.maximizeWindow();
 }
 
 export const selectDropdown = async (elements: ChainablePromiseArray<ElementArray>, value: string) => {
-
-
 
     for (let i = 0; i < (await elements).length; i++) {
         const elem = await elements[i].getAttribute('value');
