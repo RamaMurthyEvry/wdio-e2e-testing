@@ -10,7 +10,7 @@ export class SearchResultPage {
     async verifyProductInSearchResult(product: string) {
         const isProductNamePresent = await getAllProductDetails(searchResultControl.SearchResults, product)
         expect(isProductNamePresent).toBe(true);
-        
+
     }
 
 }

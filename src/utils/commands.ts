@@ -49,7 +49,8 @@ export const isTextMatchInLocator = async (locator: ChainablePromiseElement<Webd
 
 export const openUrl = async (path: string) => {
     addLog(`Opening App: ${path}`)
-    return await browser.url(path)
+    await browser.url(path)
+    await browser.maximizeWindow();
 }
 
 export const selectDropdown = async (elements: ChainablePromiseArray<ElementArray>, value: string) => {
