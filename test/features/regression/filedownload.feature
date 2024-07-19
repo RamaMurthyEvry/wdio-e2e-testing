@@ -1,4 +1,3 @@
-@swe
 Feature: Validate download functionality
 
     Scenario Outline: Test File download
