@@ -3,8 +3,10 @@ import cartPage from '../../../src/pages/amazon-pages/cart.page.ts'
 
 
 Then(/^user filter the product by price between Rs "([^"]*)" – "([^"]*)"$/, async (option1: string, option2: string) => {
-    const pricefilter = `https://www.amazon.in/s?k=Samsung+M34+5G&qid=1721371826&rnid=1318502031&ref=sr_nr_p_36_0_0&low-price=${option1}&high-price=${option2}`
-    await browser.url(pricefilter);
+    const originalUrl = await browser.getUrl();
+    const newUrl = originalUrl+"&low-price="+option1+"&high-price="+option2;
+    await browser.url(newUrl)
+    
 
 });
 
