@@ -17,7 +17,7 @@ When(/^I login with (\w+) and (.+)$/, async (username:string, password:string) =
     await LoginPage.login(username, password)
 });
 
-Then(/^I should see a flash message saying (.*)$/, async (message:string) => {
+Then('I should see a flash message saying {string}', async (message:string) => {
     await assertions.toBeExisting(SecurePage.flashAlert)
     await assertions.toHaveTextContain(SecurePage.flashAlert, message)
 });

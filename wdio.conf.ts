@@ -34,7 +34,7 @@ export const config: Options.Testrunner = {
     //
     specs: [
         
-            './test/features/**/*.feature'
+            './test/features/**/Flipkart.feature'
     ],
     // Patterns to exclude.
     exclude: [
@@ -171,7 +171,7 @@ export const config: Options.Testrunner = {
         // <boolean> fail if there are any undefined or pending steps
         strict: false,
         // <string> (expression) only execute the features or scenarios with tags matching the expression
-        tagExpression: '',
+        tagExpression: '@Flipkar',
         // <number> timeout for step definitions
         timeout: 60000,
         // <boolean> Enable this config to treat undefined definitions as warnings.
