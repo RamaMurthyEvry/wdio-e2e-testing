@@ -15,23 +15,19 @@ export class cartPage {
 
     async getProductQty() {
         return await cartControlPage.productquantity.getText();
-
     }
 
     async verifyProductDetails(name: Promise<string>, price: Promise<string>) {
         await expect(this.getProductName()).toEqual(name);
         await expect(this.getProductPrice()).toEqual(price);
-
     }
 
     async clickOnDeleteLink() {
         await cartControlPage.deleteProduct.click()
     }
 
-    async getItemRemval() {
-
-        console.log(cartControlPage.itemremovemsg)
-        return cartControlPage.itemremovemsg
+    async verifyItemRemoved() {
+       return cartControlPage.itemremovemsg.getText()
 
     }
 

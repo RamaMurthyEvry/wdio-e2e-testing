@@ -9,12 +9,13 @@ Feature: Amazon add to cart functionality
         Then Verify that the search results page displays <productName> search results
         Then User filter the product by price between Rs "10000" and "15000"
         Then Verify that all displayed products fall within the specified price range Rs "10000" and "15000"
+        # When the user filters products within the price range of Rs “10000” to “15000” then only those products should be displayed
         Then Select one product and go to product details screen
         Then Add product to the cart from product description page
-        Then Open the cart
-        Then Verify that the product is listed in the cart with correct details name, price, quantity
-        # Then Remove item from the cart and verify
-        
+        Then the user opens the shopping cart
+        Then the product should be listed in the cart with correct details - name, price, and quantity
+        Then Remove item from the cart and verify
+
 
         Examples:
             | pageUrl               | user  | productName    |
