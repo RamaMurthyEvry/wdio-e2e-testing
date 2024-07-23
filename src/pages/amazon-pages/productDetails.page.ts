@@ -16,7 +16,7 @@ class PruductDetailsPage {
 
 
     async getProductName() {
-        return (await ProductDetailsContorl.productName).getText();
+        return (await ProductDetailsContorl.productName.getText()).substring(0,50);
     }
 
     async getProductPrice() {
@@ -24,7 +24,8 @@ class PruductDetailsPage {
     }
 
     async getProductQty() {
-        return (await productDetailsContorl.productQty).getText();
+        return (await productDetailsContorl.productQty.getText()).substring(0,50);
+       
     }
 
     async clickOnAddToCart() {
