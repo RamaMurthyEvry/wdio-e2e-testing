@@ -15,26 +15,17 @@ class PruductDetailsPage {
     }
 
 
-    async getProduct_Name() {
-        ProductDetailsContorl.productName
-        const Name = await productDetailsContorl.productName
-        await expect (Name).toHaveText('Samsung Galaxy M34 5G (Midnight Blue,6GB,128GB)|120Hz sAMOLED Display') 
+    async getProductName() {
+        return (await ProductDetailsContorl.productName).getText();
     }
 
-
-    async getProduct_Price() {
-        ProductDetailsContorl.productPrice
-        const Price = await productDetailsContorl.productPrice
-        await expect(Price).toHaveValue('14,999')
+    async getProductPrice() {
+        return (await ProductDetailsContorl.productPrice).getText();
     }
 
-
-    async getProduct_Qty() {
-        productDetailsContorl.productQty
-        const Quantity = await productDetailsContorl.productQty
-        await expect(Quantity).toHaveText('1')
+    async getProductQty() {
+        return (await productDetailsContorl.productQty).getText();
     }
-
 
     async clickOnAddToCart() {
         await searchResultControl.addtocart().scrollIntoView();
