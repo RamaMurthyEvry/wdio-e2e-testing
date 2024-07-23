@@ -11,7 +11,7 @@ class PruductDetailsPage {
         console.log(`window handle: ${window}`);
         await browser.pause(3000);
         await browser.switchToWindow(window[1]);
-        let title = await browser.getTitle();
+        // let title = await browser.getTitle();
     }
 
 
@@ -28,9 +28,9 @@ class PruductDetailsPage {
     }
 
     async clickOnAddToCart() {
-        await searchResultControl.addtocart().scrollIntoView();
-        await searchResultControl.addtocart().click();
-        await browser.pause(20000);
+        await searchResultControl.addtocart.scrollIntoView();
+        await searchResultControl.addtocart.click();
+        await browser.pause(2000);
     }
 
 
@@ -40,7 +40,7 @@ class PruductDetailsPage {
 
 
     async clickOnCartButton() {
-        await searchResultControl.cartbtn().click()
+        await searchResultControl.cartbtn.click()
     }
 
 

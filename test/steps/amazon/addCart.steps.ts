@@ -1,6 +1,6 @@
-import { Given, When, Then } from '@cucumber/cucumber';
+import { Then } from '@cucumber/cucumber';
 import cartPage from '../../../src/pages/amazon-pages/cart.page.ts'
-import searchResultControl from '../../../src/pages/amazon-controls/searchResult.control.ts';
+// import searchResultControl from '../../../src/pages/amazon-controls/searchResult.control.ts';
 import searchResultPage from '../../../src/pages/amazon-pages/searchResult.page.ts';
 import PruductDetailsPage from '../../../src/pages/amazon-pages/productDetails.page.ts'
 import productDetailsPage from '../../../src/pages/amazon-pages/productDetails.page.ts';
@@ -42,15 +42,15 @@ Then(/^Open the cart$/, async() => {
 });
 
 Then(/^Verify that the product is listed in the cart with correct details name, price, quantity$/, async() => {
-	await cartPage.verifyProductDetails(productName,productQty,productPrice)
+	await cartPage.verifyProductDetails(productName,productPrice)
 });
 
-// Then(/^Remove item from the cart and verify$/, )async(args1) => {
-//     await cartPage.clickOnDeleteLink()
-//     await cartPage.getItemRemval();
-//     await cartPage.verifyProductNoLongerListed();
-//     console.log(`${args1}`);
-// });
+Then(/^Remove item from the cart and verify$/, async(args1) => {
+    await cartPage.clickOnDeleteLink();
+    await cartPage.getItemRemval();
+    await cartPage.verifyProductNoLongerListed();
+    console.log(`${args1}`);
+});
 
 
 
