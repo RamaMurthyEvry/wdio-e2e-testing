@@ -5,12 +5,13 @@ export class cartPage {
 
     async getProductName() {
         console.log(await cartControlPage.productname.getText())
-        let elementName = await cartControlPage.productname.getText();
-        return elementName
+        return (await cartControlPage.productname.getText()).substring(0, 50);
+        
     }
 
     async getProductPrice() {
-        return await cartControlPage.productprice.getText();
+        return parseInt((await cartControlPage.productprice.getText()).replace(/,/g, ''));
+        
     }
 
     async getProductQty() {
@@ -18,9 +19,10 @@ export class cartPage {
 
     }
 
-    async verifyProductDetails(name: Promise<string>, price: Promise<string>) {
-        await expect(this.getProductName()).toEqual(name);
-        await expect(this.getProductPrice()).toEqual(price);
+    async verifyProductDetails(name: string, price: number) {
+        await expect(await this.getProductName()).toEqual(name);
+        console.log(await this.getProductPrice()+ " " +price);
+        await expect(await this.getProductPrice()).toEqual(price);
 
     }
 

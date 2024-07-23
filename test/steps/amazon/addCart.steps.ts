@@ -6,9 +6,8 @@ import PruductDetailsPage from '../../../src/pages/amazon-pages/productDetails.p
 import productDetailsPage from '../../../src/pages/amazon-pages/productDetails.page.ts';
 
 // import { isTextMatchInLocator, getAllProductDetails } from '../../../src/utils/Commands.ts';
-let productName:Promise<string>;
-let productQty:Promise<string>;
-let productPrice:Promise<string>;
+let productName:string;
+let productPrice:number;
 
 Then(/^User filter the product by price between Rs "([^"]*)" and "([^"]*)"$/, async(min:number, max:number) => {
     await searchResultPage.setMinMaxFilter(min, max)
@@ -28,9 +27,8 @@ Then(/^Select one product and go to product details screen$/, async() => {
 
 
 Then(/^Add product to the cart from product description page$/, async() => {
-	productName = productDetailsPage.getProductName();
-	productQty = productDetailsPage.getProductQty();
-	productPrice = productDetailsPage.getProductPrice();
+	productName = await productDetailsPage.getProductName();
+	productPrice = parseInt((await productDetailsPage.getProductPrice()).replace(/,/g, ''));
 	await PruductDetailsPage.clickOnAddToCart()
     await PruductDetailsPage.verifySuccessMsg()
 
