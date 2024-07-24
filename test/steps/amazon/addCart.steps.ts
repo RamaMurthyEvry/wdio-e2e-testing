@@ -8,6 +8,11 @@ import productDetailsPage from '../../../src/pages/amazon-pages/productDetails.p
 let productName:string;
 let productPrice:number;
 
+async function setProductDetails() {
+    productName = await productDetailsPage.getProductName();
+    productPrice = await productDetailsPage.getProductPrice();
+}
+
 Then(/^User filter the product by price between Rs "([^"]*)" and "([^"]*)"$/, async(min:number, max:number) => {
     await searchResultPage.setMinMaxFilter(min, max)
 });
@@ -28,8 +33,7 @@ When(/^Apply filter to display products priced between Rs "([^"]*)" and Rs "([^"
 });
 
 Then(/^Add product to the cart from product description page$/, async() => {
-	productName = await productDetailsPage.getProductName();
-	productPrice = await productDetailsPage.getProductPrice();
+	await setProductDetails()
 	await PruductDetailsPage.clickOnAddToCart()
     await PruductDetailsPage.verifySuccessMsg()
 });
