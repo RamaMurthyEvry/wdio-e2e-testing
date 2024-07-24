@@ -6,7 +6,7 @@ class PruductDetailsPage {
 
 
     async searchProductclick() {
-        await searchResultControl.SearchResults[0].click();
+        await searchResultControl.searchResults[0].click();
         const window = await browser.getWindowHandles();
         console.log(`window handle: ${window}`);
         await browser.pause(3000);
@@ -20,7 +20,7 @@ class PruductDetailsPage {
     }
 
     async getProductPrice() {
-        return (await ProductDetailsContorl.productPrice).getText();
+        return parseInt((await ProductDetailsContorl.productPrice.getText()).replace(/,/g, ''));
     }
 
     async getProductQty() {
@@ -29,8 +29,8 @@ class PruductDetailsPage {
     }
 
     async clickOnAddToCart() {
-        await searchResultControl.addtocart.scrollIntoView();
-        await searchResultControl.addtocart.click();
+        await searchResultControl.addToCartBtn.scrollIntoView();
+        await searchResultControl.addToCartBtn.click();
         await browser.pause(2000);
     }
 
@@ -41,7 +41,7 @@ class PruductDetailsPage {
 
 
     async clickOnCartButton() {
-        await searchResultControl.cartbtn.click()
+        await searchResultControl.cartBtn.click()
     }
 
 

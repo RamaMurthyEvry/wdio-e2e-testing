@@ -11,7 +11,7 @@ class HomePage{
 
    async searchProduct(product:string)
     {
-    await setText(HomePageControl.searchinputfield,product)
+    await setText(HomePageControl.searchInputField,product)
 	await HomePageControl.searchButton.click();
 	await browser.pause(1000);
     }

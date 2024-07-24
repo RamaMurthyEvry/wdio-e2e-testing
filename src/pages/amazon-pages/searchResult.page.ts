@@ -3,12 +3,12 @@ import searchResultControl from "../amazon-controls/searchResult.control.ts";
 
 export class SearchResultPage {
     async verifySearchedText(text: string) {
-        const isPresent = await isTextMatchInLocator(searchResultControl.SearchedText, text);
+        const isPresent = await isTextMatchInLocator(searchResultControl.searchedText, text);
         expect(isPresent).toBe(true);
     }
 
     async verifyProductInSearchResult(product: string) {
-        const isProductNamePresent = await getAllProductDetails(searchResultControl.SearchResults, product)
+        const isProductNamePresent = await getAllProductDetails(searchResultControl.searchResults, product)
         expect(isProductNamePresent).toBe(true);
     }
 
