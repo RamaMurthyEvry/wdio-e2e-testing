@@ -9,15 +9,7 @@ Given(/^Open the application url (.*) in browser$/, async (pageUrl: string) => {
 	await openUrl(pageUrl);
 });
 
-Then(/^Verify that (.*) is on the home page$/, async (userName: string) => {
-	await HomePage.verifyUserName(userName);
-});
-
-When(/^User search (.*) product$/, async (product: string) => {
-	await HomePage.searchProduct(product);
-});
-
-Then(/^Verify that the search results page displays (.*) search results$/, async (product: string) => {
+Then(/^Verify that the search results page displays (.*) in search results$/, async (product: string) => {
 	await SearchResultPage.verifySearchedText(product)
 });
 
