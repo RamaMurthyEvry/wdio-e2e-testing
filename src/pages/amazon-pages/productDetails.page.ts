@@ -20,7 +20,7 @@ class PruductDetailsPage {
     }
 
     async getProductPrice() {
-        return (await ProductDetailsContorl.productPrice).getText();
+        return parseInt((await ProductDetailsContorl.productPrice.getText()).replace(/,/g, ''));
     }
 
     async getProductQty() {

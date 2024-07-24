@@ -5,9 +5,8 @@ import PruductDetailsPage from '../../../src/pages/amazon-pages/productDetails.p
 import productDetailsPage from '../../../src/pages/amazon-pages/productDetails.page.ts';
 
 
-let productName:Promise<string>;
-let productQty:Promise<string>;
-let productPrice:Promise<string>;
+let productName:string;
+let productPrice:number;
 
 
 // When(/^the user filters products within the price range of Rs “10000” to “15000” then only those products should be displayed$/, async(min:number, max:number) => {
@@ -32,14 +31,12 @@ Then(/^Select one product and go to product details screen$/, async() => {
 
 
 Then(/^Add product to the cart from product description page$/, async() => {
-	productName = productDetailsPage.getProductName();
-	productQty = productDetailsPage.getProductQty();
-	productPrice = productDetailsPage.getProductPrice();
+	productName = await productDetailsPage.getProductName();
+	productPrice = await productDetailsPage.getProductPrice();
 	await PruductDetailsPage.clickOnAddToCart()
     await PruductDetailsPage.verifySuccessMsg()
 
 });
-
 
 Then(/^the user opens the shopping cart$/, async() => {
 	await PruductDetailsPage.clickOnCartButton()
@@ -49,12 +46,10 @@ Then(/^the product should be listed in the cart with correct details - name, pri
 	await cartPage.verifyProductDetails(productName,productPrice)
 });
 
-
-Then(/^Remove item from the cart and verify$/, async(args1) => {
+Then(/^Remove item from the cart and verify$/, async() => {
     await cartPage.clickOnDeleteLink();
-    await cartPage.verifyItemRemoved();
-    await cartPage.verifyProductNoLongerListed();
-    console.log(`${args1}`);
+    await cartPage.verifyItemRemoved(productName);
+    await cartPage.verifyProductNoLongerListed(productName);
 });
 
 
