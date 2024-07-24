@@ -1,9 +1,6 @@
-import { Given, Then, When } from '@cucumber/cucumber';
+import { Given, Then} from '@cucumber/cucumber';
 import { openUrl } from '../../../src/utils/Commands.ts';
-import HomePage from '../../../src/pages/amazon-pages/home.page.ts'
 import SearchResultPage from '../../../src/pages/amazon-pages/searchResult.page.ts'
-
-
 
 Given(/^Open the application url (.*) in browser$/, async (pageUrl: string) => {
 	await openUrl(pageUrl);

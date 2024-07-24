@@ -23,7 +23,7 @@ export class cartPage {
 
     async verifyItemRemoved(name: string) {
         let trimmedName = name.substring(0, 20);
-        let fetchedRemovedname = (await cartControlPage.itemremovemsg.getText()).substring(0, 20)
+        let fetchedRemovedname = (await cartControlPage.itemRemovedMsg.getText()).substring(0, 20)
         expect(trimmedName).toEqual(fetchedRemovedname);
     }
 
