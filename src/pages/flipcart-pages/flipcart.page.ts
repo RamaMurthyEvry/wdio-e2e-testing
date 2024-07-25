@@ -1,9 +1,11 @@
 import { $ } from '@wdio/globals'
-// import  HomePageControl  from '../amazon-controls/home.control.ts';
 import { click } from '../../utils/Commands.ts';
 import flipcartControls from '../flipcart-controls/flipcart.controls.ts';
 
+//#region CartPage Methods
 class CartPage {
+
+  //#region Remove Product from the cart page
     public async removeProductFromCart (product: string) { 
         await (flipcartControls.removebutton).waitForClickable()
         const removeButton = $(`//a[contains(text(),'${product}')]/ancestor::div[@class="_8X-K8p"]/following-sibling::div//div[text()="Remove"]`)  //verifying that added item is displayed
@@ -12,12 +14,13 @@ class CartPage {
         await (flipcartControls.confirmRemoveButton).waitForClickable()
         await click(flipcartControls.confirmRemoveButton)              
       }
+  //#endregion    
   
-    public async verifyProduct (product:string, min:string, max:string) {  
-          browser.pause(12000)        
+  //#region verify the product details
+
+    public async verifyProduct (product:string, min:string, max:string) {         
           await (flipcartControls.removebutton).waitForClickable()   
           const element =await $(`//a[contains(text(),'${product}')]`) //verifying that added item is displayed
-          const text= element.getText()
           const res = await element.isDisplayed();
           expect(res).toBe(true)//Compare with boolean true
           const actualPrice = await $(`//a[contains(text(),'${product}')]/parent::div[@class="gE4Hlh"]/following-sibling::span[contains(@class,"re6bBo")]`)  //verifying that added item is displayed
@@ -41,14 +44,18 @@ class CartPage {
           expect(price).toBeGreaterThanOrEqual(parseFloat(max.replace(/[^0-9.-]+/g,"")))
              }
       }
+      //#endregion
         
-    public async verifyConfirmationMessage(expectedMsg:string){
+    //#region verify the confirmation message
+      public async verifyConfirmationMessage(expectedMsg:string){
            const actual = await (flipcartControls.confirmationMessage).getText()
            expect(actual).toContain(expectedMsg)
          }
+     //#endregion
   
-    public async verifyProductisNotDisplayed(product:string){
-                browser.pause(5000)
+    //#region verify product is removed from
+     public async verifyProductisNotDisplayed(product:string){
+                browser.pause(1000)
                 try {
                 const element = await $(`//a[contains(text(),${product})]`)
                   // Check if the product element exists
@@ -61,7 +68,9 @@ class CartPage {
                 expect(isExisting).toEqual(false)                  
               }      
          }
+      //#endregion
    }
+   //#endregion
   
   export default new CartPage();
   

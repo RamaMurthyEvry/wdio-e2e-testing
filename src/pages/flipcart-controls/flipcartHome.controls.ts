@@ -1,14 +1,9 @@
 import { $ } from '@wdio/globals'
 
+//#region Flipcart-Homepage WebElements
 
-/**
- * sub page containing specific selectors and methods for a specific page
- */
 class FlipkartHomeControls {
-    /**
-     * define selectors using getter methods
-     */
-    
+
     public get serchList () {
         return $$('//div[contains(text(),"SAMSUNG")]');
     }
@@ -17,8 +12,7 @@ class FlipkartHomeControls {
     }
     public get availableProduct () {
         return $('(//div[text()="Only few left"]/ancestor::div[contains(@class,"col")]/preceding-sibling::div[contains(@class,"col-7")]/div[1])[1]');
-    }    
-        
+    }            
     public get searchBox () {
         return $('//input[contains(@title,"Search")]');
     }
@@ -31,7 +25,8 @@ class FlipkartHomeControls {
     public get drpdownItem_Max () {
         return $('(//select[@class="Gn+jFg"])[2]');
     }
-     
+    
    }
+//#endregion
 
 export default new FlipkartHomeControls();

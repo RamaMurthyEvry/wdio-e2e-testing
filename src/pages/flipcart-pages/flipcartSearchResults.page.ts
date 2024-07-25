@@ -2,20 +2,25 @@ import { $ } from '@wdio/globals'
 import { click } from '../../utils/Commands.ts';
 import flipcartsearchResultsControl from '../flipcart-controls/flipcartSearchResults.control.ts';
 
+//#region Flipcart search page methods
 class FlipcartSearchPage {
    
+    //#endregion navigate to product details page
     public async navigateToProductDetails(product:String) {        
         const element = $(`//div[contains(text(), '${product}')]`);
         await click(element)         
-    }     
+    } 
+    //#endregion    
  
+   //#region verify the
    public async verifySearchResults(product:string){
-    await (flipcartsearchResultsControl.serchList).forEach(async (title, index) => {
+    await (flipcartsearchResultsControl.serchList).forEach(async (title) => {
         const text = (await title.getText()).toLowerCase()
         const productlist:string[] = product.split(" ")
         const expected = productlist[0].toLowerCase()
         expect(text).toContain(expected)        
     });
+    //#endregion
     }
 
     public async verifyPresenceOfProduct(product:string){
@@ -38,5 +43,5 @@ class FlipcartSearchPage {
             await click(flipcartsearchResultsControl.cartIcon)
         }            
     }
-
+//#endregion
 export default new FlipcartSearchPage();
