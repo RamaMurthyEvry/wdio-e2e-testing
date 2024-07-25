@@ -39,7 +39,7 @@ Then(/^Add product to the cart from product description page$/, async() => {
 });
 
 When(/^the user opens the shopping cart$/, async() => {
-	await PruductDetailsPage.clickOnCartButton()
+	await  PruductDetailsPage.clickOnCartButton()    
 });
 
 Then(/^the product should be listed in the cart with correct details$/, async() => {

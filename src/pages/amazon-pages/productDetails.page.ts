@@ -41,6 +41,7 @@ class PruductDetailsPage {
 
 
     async clickOnCartButton() {
+        await searchResultControl.cartBtn.waitForDisplayed({ timeout: 10000 });
         await searchResultControl.cartBtn.click()
     }
 
