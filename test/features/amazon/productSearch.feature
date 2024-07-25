@@ -1,3 +1,4 @@
+@swe
 Feature: Amazon product search functionality
 
       Scenario Outline: Verify the search product
