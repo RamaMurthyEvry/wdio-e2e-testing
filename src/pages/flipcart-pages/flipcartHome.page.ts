@@ -1,7 +1,7 @@
 import flipcartHomeControls from '../flipcart-controls/flipcartHome.controls.ts';
 import { click } from '../../utils/Commands.ts';
 
-//#region Flipcart search page methods
+//#region Flipcart-Home page methods
 class FlipkartHomePage {  
    //#region Enter the product name in search bar
     public async enterProductName(product: string){
@@ -18,7 +18,7 @@ class FlipkartHomePage {
 
     //#region click on search icon
     public async clickOnSearchIcon () {
-        await  (flipcartHomeControls.searchIcon).waitForClickable({timeout:10000})
+        await  (flipcartHomeControls.searchIcon).waitForClickable({timeout:50000})
         await click(flipcartHomeControls.searchIcon)
         await click(flipcartHomeControls.searchIcon)        
     }      

@@ -1,6 +1,7 @@
 import { $ } from '@wdio/globals'
 
 class FlipcartSearchControls {
+    //#region Flipcart-SearchResults page WebElements
    
     public get serchList () {
         return $$('//div[contains(text(),"SAMSUNG")]');
@@ -25,5 +26,6 @@ class FlipcartSearchControls {
     }
 
    }
+   //#endregion
 
 export default new FlipcartSearchControls();

@@ -2,7 +2,7 @@ import { $ } from '@wdio/globals'
 import { click } from '../../utils/Commands.ts';
 import flipcartsearchResultsControl from '../flipcart-controls/flipcartSearchResults.control.ts';
 
-//#region Flipcart search page methods
+//#region Flipcart-Search Results page methods
 class FlipcartSearchPage {
    
     //#endregion navigate to product details page
@@ -12,7 +12,7 @@ class FlipcartSearchPage {
     } 
     //#endregion    
  
-   //#region verify the
+   //#region verify the relevent products are displayed in search results
    public async verifySearchResults(product:string){
     await (flipcartsearchResultsControl.serchList).forEach(async (title) => {
         const text = (await title.getText()).toLowerCase()
@@ -23,11 +23,14 @@ class FlipcartSearchPage {
     //#endregion
     }
 
+    //#region veify the searched product is displayed in search results
     public async verifyPresenceOfProduct(product:string){
         const element = await $(`//*[contains(text(), '${product}')]`);
         element.isDisplayed()
     }
-    
+    //#endregion
+
+    //#region apply filter for the product with given min and max price
     public async selectPrice(min:string, max:string){
         browser.pause(5000)    
         await (flipcartsearchResultsControl.drpdownItem_Min).selectByVisibleText(min)
@@ -37,11 +40,14 @@ class FlipcartSearchPage {
         browser.pause(10000)
         //adding pause to ensure the correct results are loaded, removing pause results in test failure
         }
-    
+    //#endregion
+
+    //#region naviagate cart page
     public async navigateToCartPage(){
             await (flipcartsearchResultsControl.cartIcon).waitForClickable()
             await click(flipcartsearchResultsControl.cartIcon)
-        }            
+        }  
+    //#endregion          
     }
 //#endregion
 export default new FlipcartSearchPage();

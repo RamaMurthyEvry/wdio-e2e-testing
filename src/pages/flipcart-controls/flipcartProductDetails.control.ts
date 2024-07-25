@@ -1,14 +1,11 @@
 import { $ } from '@wdio/globals'
-
-
-/**
- * sub page containing specific selectors and methods for a specific page
- */
+//#region Flipcart-ProductDetails page WEbElements
 class FlipcartProductDetailsControls{
   
     public get addToCart () {
         return $('//button[contains(@class,"QqFHMw") and text()="Add to cart"]');
     }     
 }
+//#endregion
 
 export default new FlipcartProductDetailsControls();

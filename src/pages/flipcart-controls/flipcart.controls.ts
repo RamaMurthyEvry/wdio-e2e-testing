@@ -1,5 +1,6 @@
 import { $ } from '@wdio/globals'
 
+//#region Flipcart page WebElelemnts
 class FlipcartCartControls{
    
     public get removebutton () {
@@ -12,8 +13,8 @@ class FlipcartCartControls{
 
     public get confirmationMessage () {        
         return $('//div[contains(text(), "Successfully removed ")]');
-    }
- 
+    } 
 }
+//#endregion
 
 export default new FlipcartCartControls();

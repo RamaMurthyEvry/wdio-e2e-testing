@@ -3,7 +3,7 @@ import flipCartProductDetailsControl from '../flipcart-controls/flipcartProductD
 import flipcartsearchResultsControl from '../flipcart-controls/flipcartSearchResults.control.ts';
 import { click } from '../../utils/Commands.ts';
 
-//#region  Flipcart productdetails page methods
+//#region  Flipcart-ProductDetails page methods
 class FlipcartProductDetailsPage {
    
     //#region switch to child window
@@ -35,7 +35,6 @@ class FlipcartProductDetailsPage {
     }
     //#endregion
 
-    
     //#region verify the CartItem count before and after adding the product to a cart
     public async verifyTheCartItemsCount(){
         //comparing the count of items in cart before and after adding the product to cart
