@@ -12,7 +12,7 @@ When(/^user enters (.+) into the search bar$/, async (prodName: string) => {
     await searchProductPages.SearchProduct(prodName);
 });
 
-When(/^user clicks on the (.+) button$/, async (endpoint: string) => {
+When(/^user clicks on the Search button$/, async () => {
     await searchProductPages.clickButton();
 });
 
