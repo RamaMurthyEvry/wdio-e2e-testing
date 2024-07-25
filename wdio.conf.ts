@@ -1,7 +1,7 @@
 import type { Options } from '@wdio/types'
 // import path from 'path';
-import * as fs from 'fs';
-import { DOWNLOAD_FOLDER_PATH } from './src/constants/PathConst';
+//import * as fs from 'fs';
+//import { DOWNLOAD_FOLDER_PATH } from './src/constants/PathConst';
 export const config: Options.Testrunner = {
     //
     // ====================
@@ -153,7 +153,7 @@ export const config: Options.Testrunner = {
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
-        require: ['./test/steps/*.ts'],
+        require: ['./test/steps/**/*.ts'],
         // <boolean> show full backtrace for errors
         backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
@@ -173,7 +173,7 @@ export const config: Options.Testrunner = {
         // <string> (expression) only execute the features or scenarios with tags matching the expression
         tagExpression: '@Flipkar',
         // <number> timeout for step definitions
-        timeout: 60000,
+        timeout: 200000,
         // <boolean> Enable this config to treat undefined definitions as warnings.
         ignoreUndefinedDefinitions: false
     },

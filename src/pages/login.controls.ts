@@ -1,8 +1,8 @@
 
 class LoginControls{
     public get inputUsername () { return $('#username') }
-    get inputPassword () { return $('#password') }
-    get btnSubmit () { return $('button[type="submit"]') }
+    public get inputPassword () { return $('#password') }
+    public get btnSubmit () { return $('button[type="submit"]') }
 }
 
 export default new LoginControls();
