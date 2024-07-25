@@ -1,3 +1,4 @@
+@Flipkart
 Feature: Verify User can search for a product, and verify search results
  
  Scenario Outline: Login and search for a product
