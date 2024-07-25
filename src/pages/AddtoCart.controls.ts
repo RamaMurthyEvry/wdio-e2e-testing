@@ -22,20 +22,21 @@ export class AddtoCartControls {
     public get selectProduct() {
         return $("//*[@id='container']/div/div[3]/div/div[2]/div[2]/div/div/div/a/div[2]/div[1]/div[1]");
     }
+    
     public get minPriceFilter() {
-        return $("(//select[@class='Gn+jFg'])[1]");
+        return $("(//div[@class='suthUA']//select[@class='Gn+jFg'])[1]");
     }
     public get maxPriceFilter() {
         return $("(//select[@class='Gn+jFg'])[2]");
     }
     public get Remove() {
-        return $("//div[text()='Remove']");
+        return $("//div[normalize-space()='Remove']");
     }
     public get Removemsg() {
-        return $("//*[@id='container']/div/div[1]/div/div[3]/div/div[1]");
+        return $(".WGsKhl");
     }
     public get addToCartBtn() {
-        return $("//*[@class='QqFHMw vslbG+ In9uk2']");
+        return $("//button[@class='QqFHMw vslbG+ In9uk2']");
     }
     public get successMessage() {
         return $("(//*[@class='cthO4-'])[1]");
@@ -59,7 +60,7 @@ export class AddtoCartControls {
         });
     }
     public async isProductInCart(prodName: string) {
-        const cartItems = await $$("(//*[@class='eGXlor pk3Guc'])[1]");
+        const cartItems = await $$("//a[@class='T2CNXf QqLTQ-']");
         return cartItems.some(async (item) => {
             const name = await item.$("(//*[text()='SAMSUNG Galaxy M34 5G (Waterfall Blue, 128 GB)'])").getText();
             return name === prodName;
@@ -67,3 +68,4 @@ export class AddtoCartControls {
     }
 }
 export default new AddtoCartControls();
+

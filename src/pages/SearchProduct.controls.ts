@@ -13,7 +13,7 @@ class SearchProductControls {
     public get searchResults() {
         return $$("//html");
     }
-    public async verifyProductInResults(productName: string) {
+    public async findProductInResults(productName: string) {
         const elements = await this.searchResults;
         const foundProduct = elements.find(async (element) => {
             const text = await element.getText();

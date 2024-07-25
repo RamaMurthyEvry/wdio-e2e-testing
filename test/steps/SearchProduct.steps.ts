@@ -17,9 +17,9 @@ When(/^user clicks on the Search button$/, async () => {
 });
 
 Then(/^user should see search results displaying relevant products$/, async () => {
-    const message = await searchProductPages.getMessage();
-    const actualmessage = "Samsung M34 5G";
-    expect(message).toContain(actualmessage);
+    const successMessage = await searchProductPages.getValidationMessage();
+    const ExpectedMessage = "Samsung M34 5G";
+    expect(successMessage).toContain(ExpectedMessage);
 });
 
 Then('the product name {string} should appear in the search results', async (ProdName: string) => {

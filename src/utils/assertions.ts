@@ -40,6 +40,7 @@ class Assertion {
             console.error(`Assertion failed: ${actual} is not within range [${min}, ${max}]`);
             return false;
         }
+        
     };
 
     toBeFalse = (condition: boolean) => {

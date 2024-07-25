@@ -6,3 +6,7 @@ Feature: Verify User can search for a product, and verify search results
         And user clicks on the Search button
         Then user should see search results displaying relevant products
         And the product name "<product>" should appear in the search results
+
+        Examples:
+            | product        |
+            | Samsung M34 5G |

@@ -18,8 +18,12 @@ class searchProductPages {
         await (await SearchProductControls.actualText).waitForDisplayed();
         return (await SearchProductControls.actualText).getText();
     }
-    async verifyProductInResults(prodName: string) {
-        const productFound = await SearchProductControls.verifyProductInResults(prodName);
+    async getValidationMessage() {
+        await (await SearchProductControls.actualText).waitForDisplayed();
+        return (await SearchProductControls.actualText).getText();
+    }
+    async verifyProductInResults(productName: string) {
+        const productFound = await SearchProductControls.findProductInResults(productName);
         return productFound;
     }
 }

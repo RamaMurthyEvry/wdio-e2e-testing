@@ -11,9 +11,9 @@ When('user clicks on the "Add to Cart" button', async () => {
 });
 
 Then('verify a success message is displayed', async () => {
-    const successMessage = await AddtoCartPage.getSuccessMessage();
-    const ExpectedMessage = "Total Amount";
-    assertions.toContain(successMessage, ExpectedMessage);
+    const message = await AddtoCartPage.getSuccessMessage();
+    const actualmessage = "Total Amount";
+    assertions.toContain(message, actualmessage);
 });
 
 When('user clicks on the "Cart" icon', async () => {

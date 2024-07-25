@@ -13,7 +13,7 @@ class AddtoCartPage {
         return (await AddtoCartControls.successMessage).getText();
     }
     async goToCart() {
-        await browser.pause(2000);
+        await browser.pause(10000);
         const allWindowHandles = await browser.getWindowHandles();
         await browser.switchToWindow(allWindowHandles[0]);
         await AddtoCartControls.cartIcon.click();
