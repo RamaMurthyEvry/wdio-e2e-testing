@@ -32,3 +32,17 @@ Feature: Verify User can search for a product, and verify search results
     | product       |
     | SAMSUNG Galaxy M34 5G (Waterfall Blue, 128 GB)     |
     
+@HP
+
+  Scenario Outline: Customer adds an HP laptop to the shopping cart
+    Given user is on the Flipkart home page
+    When I navigate to the Electronics section
+   When user enters "<product>" into the search bar
+    Then I should see a list of HP laptops
+    When I choose an HP laptop from the list
+    And I click on the "Add to Cart" button
+    Then the HP laptop should be added to my shopping cart
+
+ Examples:
+    | product       |
+    | HP laptop i5     |

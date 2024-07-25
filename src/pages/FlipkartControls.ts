@@ -15,7 +15,9 @@ export class FlipkartControls {
     public get addToCartBtn() { return $("//*[@class='QqFHMw vslbG+ In9uk2']"); }
     public get successMessage() { return $("(//*[@class='cthO4-'])[1]"); }
     public get cartIcon() { return $("//*[@id='container']/div/div[1]/div[1]/div[2]/div[6]/div/div/a/span"); }
-     public async findProductInResults(productName: string) {
+    public get laptopsCategory() { return $("//*[@id='container']/div/div[1]/div[1]/div[2]/div[6]/div/div/a/span"); }
+    
+    public async findProductInResults(productName: string) {
         const elements = await this.searchResults;
         const foundProduct = elements.find(async (element) => {
             const text = await element.getText();

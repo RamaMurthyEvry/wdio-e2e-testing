@@ -75,3 +75,39 @@ Then('verify the product is no longer listed in the cart', async () => {
     assertions.toBeFalse(isProductPresent);
 });
 
+
+/////tc3 
+When('I select the Laptops category', async () => {
+    const laptopsCategory = await $('YOUR_SELECTOR_FOR_LAPTOPS_CATEGORY');
+    await laptopsCategory.click();
+  });
+
+
+  When('I search for "HP laptop"', async () => {
+    const searchBox = await $('YOUR_SELECTOR_FOR_SEARCH_BOX');
+    await searchBox.setValue('HP laptop');
+    const searchButton = await $('YOUR_SELECTOR_FOR_SEARCH_BUTTON');
+    await searchButton.click();
+  });
+  Then('I should see a list of HP laptops', async () => {
+    const listOfLaptops = await $('YOUR_SELECTOR_FOR_LIST_OF_LAPTOPS');
+    expect(listOfLaptops).toBeDisplayed();
+  });
+
+When('I navigate to the Electronics section', async () => {
+    const electronicsTab = await $('YOUR_SELECTOR_FOR_ELECTRONICS');
+    await electronicsTab.moveTo();
+  });
+  
+
+When('I click on the "Add to Cart" button', async () => {
+    const addToCartButton = await $('YOUR_SELECTOR_FOR_ADD_TO_CART_BUTTON');
+    await addToCartButton.click();
+  });
+  
+  Then('the HP laptop should be added to my shopping cart', async () => {
+    const cart = await $('YOUR_SELECTOR_FOR_SHOPPING_CART');
+    expect(cart).toHaveTextContaining('HP laptop');
+  });
+  
+

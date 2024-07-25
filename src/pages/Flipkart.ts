@@ -82,5 +82,13 @@ class Flipkart {
         return await FlipkartControls.isProductInCart(productName);
 
     }
+
+    async AddProduct() {
+        
+        return await FlipkartControls.laptopsCategory.click();
+       
+
+    }
+
    }
     export default new Flipkart()
