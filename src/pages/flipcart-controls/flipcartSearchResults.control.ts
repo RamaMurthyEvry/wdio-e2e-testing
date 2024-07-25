@@ -1,14 +1,7 @@
 import { $ } from '@wdio/globals'
-import { exit, title } from 'process';
 
-/**
- * sub page containing specific selectors and methods for a specific page
- */
 class FlipcartSearchControls {
-    /**
-     * define selectors using getter methods
-     */
-    
+   
     public get serchList () {
         return $$('//div[contains(text(),"SAMSUNG")]');
     }
@@ -32,6 +25,5 @@ class FlipcartSearchControls {
     }
 
    }
-
 
 export default new FlipcartSearchControls();

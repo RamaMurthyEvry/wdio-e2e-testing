@@ -8,9 +8,7 @@ class FlipcartProductDetailsControls{
   
     public get addToCart () {
         return $('//button[contains(@class,"QqFHMw") and text()="Add to cart"]');
-    }
-
-     
+    }     
 }
 
 export default new FlipcartProductDetailsControls();

@@ -1,23 +1,12 @@
 import { $ } from '@wdio/globals'
-import { exit, title } from 'process';
+import { click } from '../../utils/Commands.ts';
 import flipcartsearchResultsControl from '../flipcart-controls/flipcartSearchResults.control.ts';
 
-/**
- * sub page containing specific selectors and methods for a specific page
- */
 class FlipcartSearchPage {
-    /**
-     * define selectors using getter methods
-     */
-    
-
-    
-    public async navigateToProductDetails(product:String) {
-        
-        const element = await $(`//div[contains(text(), '${product}')]`);
-        await element.click()
-    //    browser.pause(30000)
-            
+   
+    public async navigateToProductDetails(product:String) {        
+        const element = $(`//div[contains(text(), '${product}')]`);
+        await click(element)         
     }     
  
    public async verifySearchResults(product:string){
@@ -25,9 +14,7 @@ class FlipcartSearchPage {
         const text = (await title.getText()).toLowerCase()
         const productlist:string[] = product.split(" ")
         const expected = productlist[0].toLowerCase()
-        expect(text).toContain(expected)
-        console.log("Relevent products are displayed")
-        
+        expect(text).toContain(expected)        
     });
     }
 
@@ -43,17 +30,13 @@ class FlipcartSearchPage {
         await (await (flipcartsearchResultsControl.drpdownItem_Max)).click()
         await (flipcartsearchResultsControl.drpdownItem_Max).selectByVisibleText(max)    
         browser.pause(10000)
+        //adding pause to ensure the correct results are loaded, removing pause results in test failure
         }
     
     public async navigateToCartPage(){
-
-            await (flipcartsearchResultsControl.cartIcon).waitForClickable({timeout: 5000})
-            await (flipcartsearchResultsControl.cartIcon).click()
-        }
-              
-    
+            await (flipcartsearchResultsControl.cartIcon).waitForClickable()
+            await click(flipcartsearchResultsControl.cartIcon)
+        }            
     }
 
-
-    
 export default new FlipcartSearchPage();

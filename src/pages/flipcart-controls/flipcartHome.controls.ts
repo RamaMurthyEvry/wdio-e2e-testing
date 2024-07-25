@@ -1,5 +1,5 @@
 import { $ } from '@wdio/globals'
-import { exit, title } from 'process';
+
 
 /**
  * sub page containing specific selectors and methods for a specific page
@@ -31,22 +31,7 @@ class FlipkartHomeControls {
     public get drpdownItem_Max () {
         return $('(//select[@class="Gn+jFg"])[2]');
     }
-   
-    /**
-     * a method to encapsule automation code to interact with the page
-     * e.g. to login using username and password
-     */
-   
+     
    }
-
-    
-
-    /**
-     * overwrite specific options to adapt it to page object
-     */
-    // public open () {
-    //     return super.open('login');
-    // }
-
 
 export default new FlipkartHomeControls();
