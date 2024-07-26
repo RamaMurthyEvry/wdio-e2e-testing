@@ -1,5 +1,6 @@
 import { $ } from '@wdio/globals';
 
+//#region Web elements to find the searchproduct scenario
 class SearchProductControls {
     public get searchbox() {
         return $("//input[@name='q']")
@@ -22,4 +23,5 @@ class SearchProductControls {
         return foundProduct !== undefined;
     }
 }
+//#endregion
 export default new SearchProductControls();

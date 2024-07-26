@@ -1,7 +1,6 @@
 import { $ } from '@wdio/globals';
 
-//#region Web elements to add product to the cart
-export class AddtoCartControls {
+export class AddItemToCartControls {
     public get searchbox() {
         return $("//input[@name='q']")
     }
@@ -23,6 +22,7 @@ export class AddtoCartControls {
     public get selectProduct() {
         return $("//*[@id='container']/div/div[3]/div/div[2]/div[2]/div/div/div/a/div[2]/div[1]/div[1]");
     }
+    
     public get minPriceFilter() {
         return $("(//div[@class='suthUA']//select[@class='Gn+jFg'])[1]");
     }
@@ -66,7 +66,19 @@ export class AddtoCartControls {
             return name === prodName;
         });
     }
+    public get selectsaveforlater(){
+        return $("//div[normalize-space()='Save for later']");
+    }
+    public async isProductInSaveforLater(prodName: string){
+        const cartItems = await $$("//div[@class='iIUzTJ']");
+        return cartItems.some(async (item)=>{
+            const name = await item.$("(//*[text()='SAMSUNG Galaxy M34 5G (Waterfall Blue, 128 GB)'])").getText();
+            return name == prodName;
+        });
+    } 
+    public get selectmovetocart(){
+        return $("//div[normalize-space()='Move to cart']")
+    }
 }
-//#endregion
-export default new AddtoCartControls();
+export default new AddItemToCartControls();
 
