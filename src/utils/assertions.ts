@@ -32,7 +32,26 @@ class Assertion {
         await expect(element).toBeDisplayed();
         addLog(`Assertion >> ${await element.selector} is displayed`)
     }
+    toBeInRange = (actual: number, min: number, max: number) => {
+        if (actual >= min && actual <= max) {
+            console.log(`Assertion passed: ${actual} is within range [${min}, ${max}]`);
+            return true;
+        } else {
+            console.error(`Assertion failed: ${actual} is not within range [${min}, ${max}]`);
+            return false;
+        }
+        
+    };
 
+    toBeFalse = (condition: boolean) => {
+        if (!condition) {
+            console.log(`Assertion passed: Condition is false`);
+            return true;
+        } else {
+            console.error(`Assertion failed: Condition is not false`);
+            return false;
+        }
 
+}
 }
 export default new Assertion()
