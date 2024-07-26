@@ -11,11 +11,11 @@
     "allure-commandline": "^2.29.0",
     "supertest": "^7.0.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.4"
   },
   "scripts": {
     "wdio": "wdio run ./wdio.conf.ts",
     "report": "allure generate allure-results --clean && allure open",
-    "test": "wdio run ./wdio.conf.ts --cucumberOpts.tagExpression:'@swe'"
+    "test": "wdio run ./wdio.conf.ts --cucumberOpts.tags='@swe'"
   }
 }
