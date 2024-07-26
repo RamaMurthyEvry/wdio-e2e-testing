@@ -1,6 +1,6 @@
 Feature: Verify User can search for a product, and verify search results
  
-  @Flipkar
+  @Flipkart
  Scenario Outline: Login and search for a product
    Given user is on the Flipkart home page
    When user enters "<product>" into the search bar

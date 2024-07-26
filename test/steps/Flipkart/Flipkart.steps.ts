@@ -1,10 +1,7 @@
 import { Given, When, Then } from '@wdio/cucumber-framework';
-import Flipkart from '../../src/pages/Flipkart.ts';
-import type { GherkinDocument } from '@cucumber/messages';
-import type Cucumber from '@cucumber/cucumber';
-import { FlipkartControls } from '../../src/pages/FlipkartControls.ts';
-import assertions from '../../src/utils/Assertions.ts';
-import { addLog } from '../../src/utils/Commands.ts';
+import Flipkart from '../../../src/pages/Flipkart-Pages/Flipkart.ts';
+import assertions from '../../../src/utils/Assertions.ts';
+import { addLog } from '../../../src/utils/Commands.ts';
 
 Given(/^user is on the Flipkart home page$/,async () => {
    await Flipkart.open();

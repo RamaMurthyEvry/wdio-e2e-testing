@@ -1,10 +1,13 @@
-import {  setText,click } from "../utils/Commands.ts"
-import FlipkartControls from "./FlipkartControls.ts"
 
-class Flipkart {
+import { waitForDisplayed } from 'webdriverio/build/commands/element';
+import { click, setText } from '../../../src/utils/Commands.ts';
+
+
+import  FlipkartControls  from '../Flipkart-Controls/FlipkartControls.ts';
+export class Flipkart {
    
     async open() {
-        await browser.url('https://www.flipkart.com/');
+        await browser.url('https://www.flipkart.com/mobile-phones-store');
     }
 
     async SearchProduct(productName: string) {
@@ -12,6 +15,7 @@ class Flipkart {
         
     }
     async clickButton() {
+        await FlipkartControls.sarchBox.waitForDisplayed({timeout:4000})
         await click(FlipkartControls.sarchBtn);
        
     }
