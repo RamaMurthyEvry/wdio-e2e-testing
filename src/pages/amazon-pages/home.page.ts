@@ -16,5 +16,30 @@ class HomePage{
 	await browser.pause(1000);
     }
 
+    async clickOnElectronic(menu:string){
+        await HomePageControl.electronicMenu.click();
+    }
+
+    async clickOnLaptopAndAccesories(submenu:string){
+        (await HomePageControl.laptopandAccessoriesmenu).click()
+    }
+
+    async selectLaptopFromCatagory(catagory:string){
+        (await HomePageControl.laptops).click()
+    }
+
+    async verifyBrands(){
+        await HomePageControl.brands.getText()
+    }
+
+    async selectBrand(brand:string){
+        if(brand=="HP"){
+        await HomePageControl.hpLaptop.scrollIntoView();
+        await HomePageControl.hpLaptop.click()
+        }
+    }
+
+
+
 }
 export default new HomePage();

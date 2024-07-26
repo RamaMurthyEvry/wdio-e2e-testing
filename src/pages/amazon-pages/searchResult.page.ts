@@ -40,6 +40,29 @@ export class SearchResultPage {
                 console.error(`Error in getAllProductNames: ${error}`);
         }
     }
+    
+    async searchProductclick() {
+     
+        await searchResultControl.searchResults[0].click();
+        const window = await browser.getWindowHandles();
+        console.log(`window handle: ${window}`);
+        await browser.pause(3000);
+        await browser.switchToWindow(window[1]);
+        // let title = await browser.getTitle();
+    }
+
+    async searchGridProductClick() {
+     
+        await searchResultControl.gridSearchResults[0].click();
+        const window = await browser.getWindowHandles();
+        console.log(`window handle: ${window}`);
+        await browser.pause(3000);
+        await browser.switchToWindow(window[1]);
+        // let title = await browser.getTitle();
+    }
+
+
+
 
 
 

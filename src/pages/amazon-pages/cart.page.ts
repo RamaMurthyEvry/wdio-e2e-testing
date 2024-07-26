@@ -5,6 +5,7 @@ import cartControlPage from '../amazon-controls/cart.control.ts'
 export class cartPage {
 
     async getProductName() {
+        await cartControlPage.productNames[0].waitForDisplayed({timeout:3000})
         return (await cartControlPage.productNames[0].getText()).substring(0, 50);
     }
 
@@ -13,6 +14,7 @@ export class cartPage {
     }
 
     async verifyProductDetails(name: string, price: number) {
+    
         await expect(await this.getProductName()).toEqual(name);
         await expect(await this.getProductPrice()).toEqual(price);
     }

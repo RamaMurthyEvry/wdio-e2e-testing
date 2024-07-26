@@ -23,7 +23,7 @@ Then(/^Verify that all displayed products fall within the specified price range 
 });
 
 When(/^the user selects first product and navigates to its details screen$/, async() => {
-	await PruductDetailsPage.searchProductclick();
+	await searchResultPage.searchProductclick();
 	await browser.pause(3000);
 });
 
