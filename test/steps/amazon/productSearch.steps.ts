@@ -14,13 +14,3 @@ Then(/^Verify that the product name appears in the search results (.*)$/, async 
 	await SearchResultPage.verifyProductInSearchResult(product)
 
 });
-
-
-
-
-
-
-
-
-
-

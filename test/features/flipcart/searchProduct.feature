@@ -1,9 +1,8 @@
 Feature: Verify User can search for a product, and verify search results
-  
-  
-  Scenario Outline: Login and search for a product
 
-    Given User is on the Flipkart home page
+  @flipkart 
+  Scenario Outline: Login and search for a product
+    Given Open the application url <pageUrl> in browser
     When User searches for the <product>
     And Filters for the price within the range <min> <max>
     And Navigate to <product> details page
@@ -15,13 +14,13 @@ Feature: Verify User can search for a product, and verify search results
     And Verify <product> is removed from the cart
 
     Examples:
-    | product           |min   |max   |message             |
-    |SAMSUNG Galaxy A35 |₹10000|₹30000|Successfully removed|
+    | pageUrl                    | product           |min   |max   |message             |
+    | https://www.flipkart.com/  |SAMSUNG Galaxy A35 |₹10000|₹30000|Successfully removed|
     
 
-  @Flipkart
-  Scenario Outline: Verify  Out of stock product
-    Given User is on the Flipkart home page
+  @flipkart
+  Scenario Outline: Verify Product is Outofstock 
+    Given Open the application url <pageUrl> in browser
     When User searches for the <product>
     And Filters for the price within the range <min> <max>
     And Navigate to <product> details page
@@ -33,6 +32,6 @@ Feature: Verify User can search for a product, and verify search results
     And Verify <product> is removed from the cart
 
     Examples:
-    | product                           |min   |max    |message             |
-    |OnePlus 12R (Sunset Dune, 256 GB)  |₹10000|₹30000+|Successfully removed|
+    | pageUrl                    | product                           |min   |max    |message             |
+    | https://www.flipkart.com/  |OnePlus 12R (Sunset Dune, 256 GB)  |₹10000|₹30000+|Successfully removed|
  
