@@ -32,7 +32,7 @@ Feature: Manage items in Amazon cart and save for later
         When the user opens the shopping cart
         Then I save the <productName> for later and verify
         Then Move <productName> from Saved for Later to the cart and verify
-        # And the <productName> should not be present in the Saved for Later section
+        And the <productName> should not be present in the Saved for Later section
 
         Examples:
             | pageUrl               | productName    |

@@ -10,7 +10,9 @@ class CartControlPage
 
     public get saveForLaterlink() {return $('//*[@value="Save for later"]')}
     public get savedForLaterItem() {return $$('//div[@id="sc-saved-cart"]//*[@class="a-truncate-full"]')}
-    public get moveToCartLink() {return $('//div[@class="a-row sc-action-links"]//input[@name="submit.move-to-cart.2c2f526a-c6db-4b56-aec0-974c67672a03"]')}
+    public get moveToCartLink() {return $('//*[@value="Move to cart"]')}
+    public get cartItem() {return $$('//div[@class="sc-item-content-group"]//*[@class="a-truncate-full"]')}
+    public get itemMovedToCart() {return $('//div[@data-asin="B09R1MMMTH"]//span[text()=" has been moved to Shopping Cart. "]')}
     
 }
 export default new CartControlPage();
