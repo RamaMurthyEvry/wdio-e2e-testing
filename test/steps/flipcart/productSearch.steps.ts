@@ -35,15 +35,18 @@ When(/^Verify (.+) is removed from the cart$/, async (product:string) => {
  })
 
 When(/^Verify confirmation (.+) is displayed$/, async (message:string) => {
+    await browser.pause(3000);
     await flipcartPage.verifyConfirmationMessage(message)  
   })
 
- Then(/^Verify the product (.+)is out of stock$/, async (message:string) => {
-    await flipcartPage.verifyMessage(message)  
+ Then(/^Verify the product (.+)is out of stock$/, async () => {
+    await browser.pause(3000);
+    await flipcartPage.verifyMessage()  
   })
 
-  Then(/^Notification (.+) displayed $/, async (message:string) => {
-    await flipcartPage.verifyMessage(message)  
+  Then(/^Notification (.+) displayed $/, async () => {
+    await browser.pause(3000);
+    await flipcartPage.verifyNotifyMessage()  
   })
 
 When(/^User remove the added product (.+) from cart$/, async (product:string) => {

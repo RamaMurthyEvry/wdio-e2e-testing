@@ -1,5 +1,6 @@
 Feature: Verify User can search for a product, and verify search results
 
+@Flipkart
   Scenario Outline: Login and search for a product
     Given Open the application url <pageUrl> in browser
     When User searches for the <product>

@@ -16,6 +16,6 @@
   "scripts": {
     "wdio": "wdio run ./wdio.conf.ts",
     "report": "allure generate allure-results --clean && allure open",
-    "test": "wdio run ./wdio.conf.ts --cucumberOpts.tagExpression:'@flipkart'"
+    "test": "wdio run ./wdio.conf.ts --cucumberOpts.tagExpression:'@Flipkart'"
   }
 }
