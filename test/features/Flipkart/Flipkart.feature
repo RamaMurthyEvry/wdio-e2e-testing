@@ -1,6 +1,6 @@
 Feature: Verify User can search for a product, and verify search results
  
-  @Flipkart
+  @Flipkart1
  Scenario Outline: Login and search for a product
    Given Open the application url <pageUrl> in browser
    When user enters "<product>" into the search bar
@@ -9,6 +9,7 @@ Feature: Verify User can search for a product, and verify search results
    And the product name "<product>" should appear in the search results
  
    Examples:
+   
     | product          | pageUrl                                     |
     | Samsung M34 5G   | https://www.flipkart.com/mobile-phones-store| 
  @Flipkart
