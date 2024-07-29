@@ -52,6 +52,15 @@ class CartPage {
            expect(actual).toContain(expectedMsg)
          }
      //#endregion
+
+     //#region verify the outofstock message
+     public async verifyMessage(expectedMsg:string){
+      const actual = await (flipcartControls.outofstockMsg).getText()
+      expect(actual).toContain(expectedMsg)
+      //#endregion
+    
+    }
+//#endregion
   
     //#region verify product is removed from
      public async verifyProductisNotDisplayed(product:string){

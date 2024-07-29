@@ -14,6 +14,14 @@ class FlipcartCartControls{
     public get confirmationMessage () {        
         return $('//div[contains(text(), "Successfully removed ")]');
     } 
+    
+    public get outofstockMsg () {
+        return $('//div[contains(text(),"This item is currently out of stock")]');
+    }
+
+    public get notifymeVerification () {
+        return $('//div[contains(text(),"We’ll notify you when this product is back in stock")]');
+    }
 }
 //#endregion
 

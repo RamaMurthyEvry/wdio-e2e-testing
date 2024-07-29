@@ -1,19 +1,15 @@
 Feature: Verify Product is out of stock
 
-@flipkart
   Scenario Outline: Verify Product is Outofstock 
     Given Open the application url <pageUrl> in browser
     When User searches for the <product>
     And Filters for the price within the range <min> <max>
     And Navigate to <product> details page
-    And Add the product to a cart
-    Then Verify that product is added to the cart successfully
-    And Verify <product> and <min> <max> price for the added item in cart details
-    When User remove the added product <product> from cart
-    Then Verify confirmation <message> is displayed
-    And Verify <product> is removed from the cart
+    Then Verify the product <message> is out of stock  
+    When Click on nofiy me button 
+    Then Notification <message1> displayed 
 
     Examples:
-    | pageUrl                    | product                           |min   |max    |message             |
-    | https://www.flipkart.com/  |OnePlus 12R (Sunset Dune, 256 GB)  |₹10000|₹30000+|Successfully removed|
+    | pageUrl                    | product                             | min   |max    |message             |message1|
+    | https://www.flipkart.com/  |Apple iPhone 6s (Rose Gold, 128 GB)  | ₹10000|₹30000+|Successfully removed| We’ll notify you when this product is back in stock|
  

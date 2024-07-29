@@ -1,6 +1,5 @@
 Feature: Verify User can search for a product, and verify search results
 
-
   Scenario Outline: Login and search for a product
     Given Open the application url <pageUrl> in browser
     When User searches for the <product>
@@ -15,5 +14,4 @@ Feature: Verify User can search for a product, and verify search results
 
     Examples:
     | pageUrl                    | product           |min   |max   |message             |
-    | https://www.flipkart.com/  |SAMSUNG Galaxy A35 |₹10000|₹30000|Successfully removed|    
-    
+    | https://www.flipkart.com/  |SAMSUNG Galaxy A35 |₹10000|₹30000|Successfully removed|        

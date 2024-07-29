@@ -5,11 +5,6 @@ import FlipCartProductDetailsPage from '../../../src/pages/flipcart-pages/flipca
 import flipcartPage from '../../../src/pages/flipcart-pages/flipcart.page.ts';
 
 
-Given(/^User is on the Flipkart home page$/, async ()=>{
-    await browser.maximizeWindow()
-    browser.url("https://www.flipkart.com/")     
-})
-
 When(/^User searches for the (.+)$/, async (product:string) => {
     await FlipCarthomePage.searchForProduct(product)
     await FlipCarthomePage.clickOnSearchIcon()  
@@ -22,6 +17,9 @@ When(/^Navigate to (.+) details page$/, async (product:string) => {
 When(/^Add the product to a cart$/, async () => {
    await FlipCartProductDetailsPage.addProductToCart()  
 })
+When(/^Click on nofiy me button$/, async () => {
+    await FlipCartProductDetailsPage.notifymeToCart()  
+ })
 
 Then(/^Verify that product is added to the cart successfully$/, async () => {
     await FlipCartProductDetailsPage.verifyTheCartItemsCount() 
@@ -38,6 +36,14 @@ When(/^Verify (.+) is removed from the cart$/, async (product:string) => {
 
 When(/^Verify confirmation (.+) is displayed$/, async (message:string) => {
     await flipcartPage.verifyConfirmationMessage(message)  
+  })
+
+ Then(/^Verify the product (.+)is out of stock$/, async (message:string) => {
+    await flipcartPage.verifyMessage(message)  
+  })
+
+  Then(/^Notification (.+) displayed $/, async (message:string) => {
+    await flipcartPage.verifyMessage(message)  
   })
 
 When(/^User remove the added product (.+) from cart$/, async (product:string) => {

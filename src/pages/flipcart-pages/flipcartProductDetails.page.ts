@@ -27,6 +27,14 @@ class FlipcartProductDetailsPage {
         await click(flipCartProductDetailsControl.addToCart)
         }
     //#endregion
+
+    //#region Notifyme product to cart
+    public async notifymeToCart() {
+        this.switchTonewTab()        
+        await (flipCartProductDetailsControl.notifymeBtn).waitForClickable({ timeout: 10000});
+        await click(flipCartProductDetailsControl.notifymeBtn)
+        }
+    //#endregion
            
     //#region verify display of product in cart page
     public async verifyPresenceOfProduct(product:string){
