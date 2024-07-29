@@ -10,6 +10,6 @@ Feature: Verify Product is out of stock
     Then Notification <message1> displayed 
 
     Examples:
-    | pageUrl                    | product                             | min   |max    |message             |message1|
-    | https://www.flipkart.com/  |Apple iPhone 6s (Rose Gold, 128 GB)  | ₹10000|₹30000+|Successfully removed| We’ll notify you when this product is back in stock|
+    | pageUrl                    | product                             | min   |max    |message                            |message1                                            | 
+    | https://www.flipkart.com/  |Apple iPhone 6s (Rose Gold, 128 GB)  | ₹10000|₹30000+|This item is currently out of stock| We’ll notify you when this product is back in stock|
  
