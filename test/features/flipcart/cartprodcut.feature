@@ -1,5 +1,6 @@
 Feature: Verify Product is out of stock
 
+@Flipkart
   Scenario Outline: Verify Product is Outofstock 
     Given Open the application url <pageUrl> in browser
     When User searches for the <product>
