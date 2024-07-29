@@ -21,7 +21,9 @@ Then('user should see search results displaying relevant products', async () => 
 
 Then('the product name {string} should appear in the search results', async (productName: string) => {
    const productFound = await Flipkart.verifyProductInResults(productName);
-   expect(productFound).toBeTruthy();   
+   expect(productFound).toBeTruthy(); 
+   await browser.closeWindow();
+  
 });
 //#endregion steps for Scenario1
 //#region Steps for Scenario2
@@ -59,17 +61,15 @@ When('I navigate to the Electronics section', async () => {
     const electronicsTab = await $('YOUR_SELECTOR_FOR_ELECTRONICS');
     await electronicsTab.moveTo();
   });
-When('I select the Laptops category', async () => {
-    const laptopsCategory = await $('YOUR_SELECTOR_FOR_LAPTOPS_CATEGORY');
-    await laptopsCategory.click();
-  });
-
-
-  When('I search for "HP laptop"', async () => {
+ When('user enters {string} into the search bar', async () => {
     const searchBox = await $('YOUR_SELECTOR_FOR_SEARCH_BOX');
     await searchBox.setValue('HP laptop');
     const searchButton = await $('YOUR_SELECTOR_FOR_SEARCH_BUTTON');
     await searchButton.click();
+  });
+  When('I choose an {string} from the list', async (productName: string) => {
+    const laptopsCategory = await $(productName);
+    await laptopsCategory.click();
   });
 When('I click on the "Add to Cart" button', async () => {
     const addToCartButton = await $('YOUR_SELECTOR_FOR_ADD_TO_CART_BUTTON');
