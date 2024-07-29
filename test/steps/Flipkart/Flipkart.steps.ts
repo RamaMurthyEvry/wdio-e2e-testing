@@ -6,6 +6,7 @@ import { openUrl } from '../../../src/utils/Commands.ts';
 Given(/^Open the application url (.*) in browser$/, async (pageUrl: string) => {
 	await openUrl(pageUrl);
 });
+
 When(/^user enters (.+) into the search bar$/,async (productName: string) => {
    await Flipkart.SearchProduct(productName);
    });
@@ -19,17 +20,19 @@ Then('user should see search results displaying relevant products', async () => 
     expect(successMessage).toContain(ExpectedMessage);
 });
 
-Then('the product name {string} should appear in the search results', async (productName: string) => {
-   const productFound = await Flipkart.verifyProductInResults(productName);
-   expect(productFound).toBeTruthy(); 
-   await browser.closeWindow();
-  
+
+
+Then(/^the product name (.+) should appear in the search results$/, async(productName:string) => {
+	const productFound = await Flipkart.verifyProductInResults(productName);
+  await expect(productFound).toBeTruthy(); 
+  browser.browserClose;
 });
 //#endregion steps for Scenario1
 //#region Steps for Scenario2
 When('user selects one product and goes to the product details screen', async () => {
     await Flipkart.selectProduct();
     });
+    
 When('user clicks on the "Add to Cart" button', async () => {
     await Flipkart.addToCart();
 });
