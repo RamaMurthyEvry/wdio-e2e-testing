@@ -36,5 +36,27 @@ export class cartPage {
             throw("Iteam Not Deleted")
         }
     }
-}
+
+    async clickOnSaveForLater(){
+        await (await cartControlPage.saveForLaterlink).waitForDisplayed()
+        await cartControlPage.saveForLaterlink.click()  
+    }
+
+    async verifysavedForLaterItem(productname:string){
+        if(await getAllProductDetails(cartControlPage.savedForLaterItem, productname)){
+            console.log("Item moved to saved for Later")
+        }
+        else{
+            throw("Item not found in saved for Later")
+        }
+    }
+
+    async clickOnMoveToCart(){
+        await cartControlPage.moveToCartLink.scrollIntoView()
+        await cartControlPage.moveToCartLink.click()
+    }
+
+   
+
+    }
 export default new cartPage();
