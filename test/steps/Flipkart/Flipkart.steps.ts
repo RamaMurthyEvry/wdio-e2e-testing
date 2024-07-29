@@ -21,7 +21,7 @@ Then('user should see search results displaying relevant products', async () => 
 
 Then('the product name {string} should appear in the search results', async (productName: string) => {
    const productFound = await Flipkart.verifyProductInResults(productName);
-   expect(productFound).toBeTruthy(); 
+   expect(productFound).toBeTruthy();   
 });
 //#endregion steps for Scenario1
 //#region Steps for Scenario2
