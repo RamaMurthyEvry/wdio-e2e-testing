@@ -1,22 +1,18 @@
  import { $ } from '@wdio/globals';
 export class FlipkartControls {
-   
+   //#region Flipkart Controls
     public get sarchBox() { return $("//input[@name='q']") }
     public get sarchBtn() { return $("//button[@class='MJG8Up']") }
     public get actualText() {return $("//*[@id='container']/div/div[3]/div[1]/div[2]/div[1]/div/div/span/span");}
     public get searchResults() { return $$("//html"); } 
-    public get Filter() { return $$("//html"); } 
-    public get actualFilterText() { return $("//*[@id='container']/div/div[3]/div/div[1]/div/div[1]/div/section[1]/div[2]/div[1]/div/div[2]"); }    
-    public get selectProduct() { return $("//*[@id='container']/div/div[3]/div/div[2]/div[2]/div/div/div/a/div[2]/div[1]/div[1]"); }
-    public get minPriceFilter() { return $("(//select[@class='Gn+jFg'])[1]"); }
-    public get maxPriceFilter() { return $("(//select[@class='Gn+jFg'])[2]"); }
+    public get selectProduct() { return $("(//*[text()='SAMSUNG Galaxy M34 5G without charger (Prism Silver, 128 GB)'])[2]"); }
     public get Remove() { return $("//div[text()='Remove']"); }
-    public get Removemsg() { return $("//*[@id='container']/div/div[1]/div/div[3]/div/div[1]"); }
+    public get Removemsg() { return $("(//div[text()='Remove'])[1]"); }
     public get addToCartBtn() { return $("//*[@class='QqFHMw vslbG+ In9uk2']"); }
     public get successMessage() { return $("(//*[@class='cthO4-'])[1]"); }
-    public get cartIcon() { return $("//*[@id='container']/div/div[1]/div[1]/div[2]/div[6]/div/div/a/span"); }
-    public get laptopsCategory() { return $("//*[@id='container']/div/div[1]/div[1]/div[2]/div[6]/div/div/a/span"); }
-    
+    public get cartIcon() { return $("//*[text()='Cart']"); }
+    //#endregion Flipkart Controls
+    //#region Functions
     public async findProductInResults(productName: string) {
         const elements = await this.searchResults;
         const foundProduct = elements.find(async (element) => {
@@ -41,7 +37,7 @@ export class FlipkartControls {
             return name === productName;
         });
     }
-
+//#endregion Functions
 
 }
 export default new FlipkartControls();
