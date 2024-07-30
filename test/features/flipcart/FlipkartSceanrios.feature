@@ -1,7 +1,8 @@
-Feature: Verify User can search for a product, and verify search results
-  
-  @Flipkart
-  Scenario Outline: Login and search for a product
+Feature: Flipart Verify outofstock products
+@Flipkart
+
+Scenario Outline: Verify Out of Stock  product
+
     Given User is on the Flipkart home page
     When User searches for the <product>
     And Filters for the price within the range <min> <max>
@@ -14,8 +15,5 @@ Feature: Verify User can search for a product, and verify search results
     And Verify <product> is removed from the cart
 
     Examples:
-    | product           |min   |max   |message             |
+    | product              |min   |max   |message             |
     |SAMSUNG Galaxy A35 |₹10000|₹30000|Successfully removed|
-
-
-    
