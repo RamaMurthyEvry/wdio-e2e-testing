@@ -1,6 +1,7 @@
 
 import { getAllProductDetails } from '../../utils/Commands.ts';
 import cartControlPage from '../amazon-controls/cart.control.ts'
+\
 
 export class cartPage {
 

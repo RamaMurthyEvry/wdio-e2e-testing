@@ -69,6 +69,7 @@ Then(/^Move (.+) from Saved for Later to the cart and verify$/,async(productname
 
 
 Then(/^the (.+)should not be present in the Saved for Later section$/, async(productname:string) => {
+    await browser.pause(5000)
 	await cartPage.verifyItemMovedToCart(productname)
 });
 

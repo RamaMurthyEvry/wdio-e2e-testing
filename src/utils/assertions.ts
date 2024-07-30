@@ -1,5 +1,9 @@
 import { ChainablePromiseElement } from "webdriverio"
 import { addLog } from "./Commands.ts"
+import { browser } from '@wdio/globals';
+
+
+ 
 
 class Assertion {
 

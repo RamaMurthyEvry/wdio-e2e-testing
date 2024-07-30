@@ -11,8 +11,8 @@ When(/^User search (.*) product$/, async (product: string) => {
 	await HomePage.searchProduct(product);
 });
 
-When(/^I navigate to the Electronics from (.+)$/, async(menu:string) => {
-	await HomePage.clickOnElectronic(menu)
+When(/^I navigate to the Electronics from (.+)$/, async() => {
+	await HomePage.clickOnElectronic()
 	console.log("clicking on electronics menu")
 	await browser.pause(3000)
 });
