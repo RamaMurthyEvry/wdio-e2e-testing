@@ -34,7 +34,7 @@ export const config: Options.Testrunner = {
     //
     specs: [
         
-            './test/features/**/*.feature'
+            './test/features/**/*SearchingandSorting.feature'
     ],
     // Patterns to exclude.
     exclude: [

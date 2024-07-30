@@ -11,3 +11,5 @@ Feature: Amazon product search functionality
             Examples:
                   | pageUrl               | user  | productName |
                   | https://www.amazon.in | Hello | iPhone      |
+
+      

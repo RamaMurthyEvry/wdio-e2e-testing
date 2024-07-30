@@ -1,4 +1,4 @@
-import { isTextMatchInLocator, getAllProductDetails } from '../../../src/utils/Commands.ts';
+import { isTextMatchInLocator, getAllProductDetails,selectDropdown } from '../../../src/utils/Commands.ts';
 import searchResultControl from "../amazon-controls/searchResult.control.ts";
 
 export class SearchResultPage {
@@ -40,7 +40,12 @@ export class SearchResultPage {
                 console.error(`Error in getAllProductNames: ${error}`);
         }
     }
-
+    
+    async applySorting(sort:string){
+     await selectDropdown(searchResultControl.sortDropDown,sort)
+     await browser.pause(5000);
+     console.log("filter applied succesfully");
+    }
 
 
 }
