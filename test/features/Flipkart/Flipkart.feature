@@ -1,6 +1,6 @@
 Feature: Verify User can search for a product, and verify search results
 
-  @Flipkart1 @Flipkart
+@Flipkart
   Scenario Outline: Login and search for a product
     Given Open the application url <pageUrl> in browser
     When user enters <product> into the search bar
@@ -12,7 +12,7 @@ Feature: Verify User can search for a product, and verify search results
       | product        | pageUrl                                      |
       | Samsung M34 5G | https://www.flipkart.com/mobile-phones-store |
 
-  @Flipkart2  @Flipkart
+ @Flipkart
   Scenario Outline: Add a product to cart, verify, and remove it
     Given Open the application url <pageUrl> in browser
     When user enters <product> into the search bar
