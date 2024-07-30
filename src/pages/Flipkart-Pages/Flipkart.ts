@@ -36,7 +36,6 @@ export class Flipkart {
          }
          //#endregion selectProduct
     //#region addToCart
-
      async addToCart() {
         await FlipkartControls.addToCartBtn.click();
         }
@@ -66,8 +65,7 @@ export class Flipkart {
     }
     //#endregion RemoveProduct
     //#region RemovePromtMessage
-
-async RemovePromtMessage() {
+    async RemovePromtMessage() {
         await browser.pause(2000);
         await (await FlipkartControls.Removemsg).waitForClickable();
         await FlipkartControls.Removemsg.click();
@@ -78,5 +76,30 @@ async RemovePromtMessage() {
         await browser.pause(4000);
         return await FlipkartControls.isProductInCart(productName); }
     //#endregionisProductInCart
-        }
+    //#region navigateToElectronics
+     async navigateToElectronics() {
+        await browser.pause(4000);
+        await FlipkartControls.navigateToElectronics();
+    }
+     //#endregion navigateToElectronics
+     //#region searchProduct
+    async searchProduct(productName: string) {
+        await browser.pause(4000);
+        await FlipkartControls.searchProduct(productName);
+    }
+    //#endregion searchProduct
+    //#region chooseProduct
+    async chooseProduct() {
+        await browser.pause(5000);
+        await FlipkartControls.chooseProduct();
+    }
+    //#endregion chooseProduct
+    //#region addProductToCart
+    async addProductToCart() {
+        const allWindowHandles = await browser.getWindowHandles();
+        await browser.switchToWindow(allWindowHandles[1]); 
+         await FlipkartControls.addProductToCart();
+    }
+    //#endregion addProductToCart
+     }
     export default new Flipkart()

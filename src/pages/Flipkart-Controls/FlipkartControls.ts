@@ -11,6 +11,9 @@ export class FlipkartControls {
     public get addToCartBtn() { return $("//*[@class='QqFHMw vslbG+ In9uk2']"); }
     public get successMessage() { return $("(//*[@class='cthO4-'])[1]"); }
     public get cartIcon() { return $("//*[text()='Cart']"); }
+    public get electronicsSection() { return $("(//*[@class='TSD49J'])[1]"); }
+    public get cartItems() { return $$("//div[contains(@class, 'cart-item')]"); }
+    public get chooselaptop() { return $("(//*[@class='KzDlHZ'])[1]"); }
     //#endregion Flipkart Controls
     //#region Functions
     public async findProductInResults(productName: string) {
@@ -21,7 +24,6 @@ export class FlipkartControls {
         });
         return foundProduct !== undefined;
     }
-
     public async getProductInCart(productName: string) {
         const cartItems = await $$(".cart-item");
         return cartItems.find(async (item) => {
@@ -29,15 +31,25 @@ export class FlipkartControls {
             return name === productName;
         });
     }
-
     public async isProductInCart(productName: string) {
         const cartItems = await $$("(//*[@class='eGXlor pk3Guc'])[1]");
         return cartItems.some(async (item) => {
             const name = await item.$("(//*[text()='SAMSUNG Galaxy M34 5G (Waterfall Blue, 128 GB)'])").getText();
             return name === productName;
-        });
+        });  }
+    public async navigateToElectronics() {
+        await this.electronicsSection.click();
     }
-//#endregion Functions
-
+    public async searchProduct(productName: string) {
+        await this.sarchBox.setValue(productName);    
+    }  
+    public async chooseProduct() {
+        await this.sarchBtn.click();
+        await this.chooselaptop.click();
+    }   
+    public async addProductToCart() {
+        await this.addToCartBtn.click();
+    }   
+    //#endregion Functions
 }
 export default new FlipkartControls();

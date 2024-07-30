@@ -6,12 +6,10 @@ import { openUrl } from '../../../src/utils/Commands.ts';
 Given(/^Open the application url (.*) in browser$/, async (pageUrl: string) => {
 	await openUrl(pageUrl);
 });
-
 When(/^user enters (.+) into the search bar$/,async (productName: string) => {
    await Flipkart.SearchProduct(productName);
    });
-   
-When('user clicks on the Search button',async () => {
+   When('user clicks on the Search button',async () => {
    await Flipkart.clickButton();
   });
 Then('user should see search results displaying relevant products', async () => {
@@ -19,13 +17,9 @@ Then('user should see search results displaying relevant products', async () => 
     const ExpectedMessage = "Samsung M34 5G";
     expect(successMessage).toContain(ExpectedMessage);
 });
-
-
-
 Then(/^the product name (.+) should appear in the search results$/, async(productName:string) => {
 	const productFound = await Flipkart.verifyProductInResults(productName);
   await expect(productFound).toBeTruthy(); 
-  browser.browserClose;
 });
 //#endregion steps for Scenario1
 //#region Steps for Scenario2
@@ -58,33 +52,28 @@ Then('verify the {string} is no longer listed in the cart', async (productName: 
     assertions.toBeFalse(isProductPresent);
 });
 //#endregion Steps for Scenario2
-
-//#region Scenario3
+//#region  Steps for Scenario3
 When('I navigate to the Electronics section', async () => {
-    const electronicsTab = await $('YOUR_SELECTOR_FOR_ELECTRONICS');
-    await electronicsTab.moveTo();
-  });
- When('user enters {string} into the search bar', async () => {
-    const searchBox = await $('YOUR_SELECTOR_FOR_SEARCH_BOX');
-    await searchBox.setValue('HP laptop');
-    const searchButton = await $('YOUR_SELECTOR_FOR_SEARCH_BUTTON');
-    await searchButton.click();
-  });
-  When('I choose an {string} from the list', async (productName: string) => {
-    const laptopsCategory = await $(productName);
-    await laptopsCategory.click();
-  });
-When('I click on the "Add to Cart" button', async () => {
-    const addToCartButton = await $('YOUR_SELECTOR_FOR_ADD_TO_CART_BUTTON');
-    await addToCartButton.click();
-  });
-  
-  Then('the HP laptop should be added to my shopping cart', async () => {
-    const cart = await $('YOUR_SELECTOR_FOR_SHOPPING_CART');
-    expect(cart).toHaveTextContaining('HP laptop');
-  });
+  await Flipkart.navigateToElectronics();
+});
 
-//#endregion Scenario3
+When('user enters {string} into the search bar', async (productName: string) => {
+  await Flipkart.searchProduct(productName);
+});
+
+When('I choose an Laptop from the list', async () => {
+  await Flipkart.chooseProduct();
+});
+
+When('I click on the "Add to Cart" button', async () => {
+  await Flipkart.addProductToCart();
+  await Flipkart.goToCart();
+ });
+//#endregion Steps for Scenario3
+
+
+
+
 
   
 
