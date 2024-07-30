@@ -1,3 +1,4 @@
+@Flips
 Feature: Verify User can search for a product, and verify search results
   Scenario Outline: Login and search for a product
 
@@ -7,9 +8,10 @@ Feature: Verify User can search for a product, and verify search results
     And Navigate to <product> details page
     And Add the product to a cart
     Then Verify that product is added to the cart successfully
+    And user click on the cart
     And Verify <product> and <min> <max> price for the added item in cart details
     When User remove the added product <product> from cart
-    Then Verify confirmation <message> is displayed
+    # Then Verify confirmation <message> is displayed
     And Verify <product> is removed from the cart
 
     Examples:

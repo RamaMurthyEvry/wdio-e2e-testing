@@ -1,8 +1,9 @@
 import { Given, When, Then } from '@wdio/cucumber-framework';
-import FlipCarthomePage from '../../../src/pages/flipcart-pages/FlipCartHome.page.ts';
-import flipcartSearchResultsPage from '../../../src/pages/flipcart-pages/flipcartSearchResults.page.ts';
-import FlipCartProductDetailsPage from '../../../src/pages/flipcart-pages/flipcartProductDetails.page.ts';
-import flipcartPage from '../../../src/pages/flipcart-pages/flipcart.page.ts';
+import FlipkarthomePage from '../../../src/pages/flipkart-pages/FlipkartHome.page.ts';
+import flipkartSearchResultsPage from '../../../src/pages/flipkart-pages/flipkartSearchResults.page.ts';
+import FlipkartProductDetailsPage from '../../../src/pages/flipkart-pages/flipkartProductDetails.page.ts';
+import flipkartPage from '../../../src/pages/flipkart-pages/flipkart.page.ts';
+import flipkartProductDetailsPage from '../../../src/pages/flipkart-pages/flipkartProductDetails.page.ts';
 
 
 Given(/^User is on the Flipkart home page$/, async ()=>{
@@ -11,48 +12,74 @@ Given(/^User is on the Flipkart home page$/, async ()=>{
 })
 
 When(/^User searches for the (.+)$/, async (product:string) => {
-    await FlipCarthomePage.searchForProduct(product)
-    await FlipCarthomePage.clickOnSearchIcon()  
+    await FlipkarthomePage.searchForProduct(product);
+    await FlipkarthomePage.clickOnSearchIcon();
 })
 
 When(/^Navigate to (.+) details page$/, async (product:string) => {
-    await flipcartSearchResultsPage.navigateToProductDetails(product)  
+    await flipkartSearchResultsPage.navigateToProductDetails(product)  
 })
+
+
+Then(/^Navigate back to product details Page and search (.+)$/, async (product2:string) => {
+	await flipkartSearchResultsPage.navigateBackToProductDetails(product2);
+    // await flipkartSearchResultsPage.clickOnProductandAddToCart();
+});
+
+Then(/^User click on add to cart$/, async () => {
+    await flipkartSearchResultsPage.clickOnProductandAddToCart();
+});
+
 
 When(/^Add the product to a cart$/, async () => {
-   await FlipCartProductDetailsPage.addProductToCart()  
+   await FlipkartProductDetailsPage.addProductToCart();
 })
 
+
+Then(/^user click on the shopping cart$/, async () => {
+	await browser.pause(5000);
+	await flipkartProductDetailsPage.clickOnShoppingCartButton();
+});
+
+
 Then(/^Verify that product is added to the cart successfully$/, async () => {
-    await FlipCartProductDetailsPage.verifyTheCartItemsCount() 
+    await FlipkartProductDetailsPage.verifyTheCartItemsCount() 
+ })
+
+ Then(/^user click on the cart$/, async () => {
+    await flipkartSearchResultsPage.navigateToCartPage();
  })
 
 Then(/^Verify (.+) and (.+) (.+) price for the added item in cart details$/, async (product:string, min:string, max:string) => {
-    await flipcartSearchResultsPage.navigateToCartPage()
-    await flipcartPage.verifyProduct(product, min, max)  
+    // await flipkartSearchResultsPage.navigateToCartPage()
+    await flipkartPage.verifyProduct(product, min, max)
  })
+
+ Then(/^Verify that all displayed products fall within the specified price range "([^"]*)" and "([^"]*)"$/, async (min:number, max:number) => {
+    await flipkartSearchResultsPage.fkVerifyProductPrice(min, max)
+});
  
 When(/^Verify (.+) is removed from the cart$/, async (product:string) => {   
-    await flipcartPage.verifyProductisNotDisplayed(product)        
+    await flipkartPage.verifyProductisNotDisplayed(product)        
  })
 
 When(/^Verify confirmation (.+) is displayed$/, async (message:string) => {
-    await flipcartPage.verifyConfirmationMessage(message)  
+    await flipkartPage.verifyConfirmationMessage(message)  
   })
 
 When(/^User remove the added product (.+) from cart$/, async (product:string) => {
-    await flipcartPage.removeProductFromCart(product)
+    await flipkartPage.removeProductFromCart(product)
  })
 
 Then('user should see search results displaying relevant {string} products', async (product:string) => {
-    await flipcartSearchResultsPage.verifySearchResults(product)
+    await flipkartSearchResultsPage.verifySearchResults(product)
 })
 
 Then('the product name {string} should appear in the search results', async (product:string) => {
-    await flipcartSearchResultsPage.verifyPresenceOfProduct(product)
+    await flipkartSearchResultsPage.verifyPresenceOfProduct(product)
 })
 
 When(/^Filters for the price within the range (.+) (.+)$/, async (min:string, max:string) => {     
-    await flipcartSearchResultsPage.selectPrice(min, max)
-    browser.pause(5000)
+    await flipkartSearchResultsPage.selectPrice(min, max);
+    browser.pause(5000);
 })
