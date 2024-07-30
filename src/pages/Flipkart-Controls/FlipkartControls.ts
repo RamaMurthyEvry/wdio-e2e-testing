@@ -24,14 +24,7 @@ export class FlipkartControls {
         });
         return foundProduct !== undefined;
     }
-    public async getProductInCart(productName: string) {
-        const cartItems = await $$(".cart-item");
-        return cartItems.find(async (item) => {
-            const name = await item.$(".product-name").getText();
-            return name === productName;
-        });
-    }
-    public async isProductInCart(productName: string) {
+      public async isProductInCart(productName: string) {
         const cartItems = await $$("(//*[@class='eGXlor pk3Guc'])[1]");
         return cartItems.some(async (item) => {
             const name = await item.$("(//*[text()='SAMSUNG Galaxy M34 5G (Waterfall Blue, 128 GB)'])").getText();

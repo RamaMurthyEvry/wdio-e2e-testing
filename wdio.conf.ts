@@ -34,7 +34,7 @@ export const config: Options.Testrunner = {
     //
     specs: [
         
-            './test/features/Flipkart/Flipkart.feature'
+            './test/features/Flipkart/hp.feature'
             
     ],
     // Patterns to exclude.
