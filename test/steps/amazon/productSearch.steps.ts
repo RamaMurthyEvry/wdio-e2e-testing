@@ -17,8 +17,13 @@ Then(/^Verify that the product name appears in the search results (.*)$/, async 
 });
 
 
-When(/^Apply sorting by (.*)$/, async (sort:string) => {
+When(/^Apply sorting by (.*) and verify$/, async (sort:string,) => {
 	await SearchResultPage.applySorting(sort)
+	if(sort=='price-asc-rank'||sort=='price-desc-rank')
+	{
+		await SearchResultPage.verifySorting(sort);
+	}
+	
 });
 
 
