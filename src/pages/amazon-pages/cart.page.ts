@@ -44,7 +44,7 @@ export class cartPage {
 
 
     async clickOnSaveForLater(){
-        await (await cartControlPage.saveForLaterlink).waitForDisplayed()
+        await (await cartControlPage.saveForLaterlink).scrollIntoView()
         await cartControlPage.saveForLaterlink.click()  
     }
 
@@ -76,15 +76,15 @@ export class cartPage {
     }
     
 
-    async verifyItemMovedToCart(productname:string){
+    async verifyItemInSaveForLater(productname:string){
 
-        const productSelector = await cartControlPage.itemMovedToCart
-        const isProductPresent = await productSelector.isDisplayed();
-
-        if (isProductPresent) {
-            throw new Error(`Product is present in the Saved for Later section.`);
-        } else {
-            console.log(`Product is not present in the Saved for Later section.`);
+    {
+            if(!(await getAllProductDetails(cartControlPage.savedForLaterItem, productname))){
+                console.log("Item is not present in saved for Later")
+            }
+            else{
+                throw("Item is found in saved for Later")
+            }
         }
     }
 

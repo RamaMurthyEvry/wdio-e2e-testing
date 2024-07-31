@@ -36,4 +36,4 @@ Feature: Manage items in Amazon cart and save for later
 
         Examples:
             | pageUrl               | productName |
-            | https://www.amazon.in | HP laptop |
+            | https://www.amazon.in | HP Laptop   |

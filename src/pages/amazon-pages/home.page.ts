@@ -16,7 +16,7 @@ class HomePage{
 	await browser.pause(1000);
     }
 
-    async clickOnElectronic(){
+    async clickOnElectronic(menu:string){
         await HomePageControl.electronicMenu.click();
     }
 
