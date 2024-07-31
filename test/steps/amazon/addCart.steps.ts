@@ -52,6 +52,25 @@ Then(/^Remove item from the cart and verify$/, async() => {
     await cartPage.verifyProductNoLongerListed(productName);
 });
 
+Then(/^I save the (.+) for later and verify$/, async(productname:string) => {
+	await cartPage.clickOnSaveForLater()
+    console.log("clicked on save for later")
+    await browser.pause(5000)
+    await cartPage.verifysavedForLaterItem(productname)
+});
+
+Then(/^Move (.+) from Saved for Later to the cart and verify$/,async(productname:string) => {
+	await cartPage.clickOnMoveToCart()
+    console.log("clicked on moved to cart")
+    await browser.pause(3000)
+    await cartPage.verifyCartItem(productname)
+});
+
+Then(/^the (.+)should not be present in the Saved for Later section$/, async(productname:string) => {
+    await browser.pause(5000)
+	await cartPage.verifyItemInSaveForLater(productname)
+});
+
 
 
 
