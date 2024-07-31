@@ -13,7 +13,7 @@ Feature: Amazon product search and sort functionality
             | pageUrl               | user  | productName | sort            |
             | https://www.amazon.in | Hello | iPhone      | price-desc-rank |
             | https://www.amazon.in | Hello | iPhone      | price-asc-rank  |
-
+            | https://www.amazon.in | Hello | iPhone      | review-rank     |
 
 
 
