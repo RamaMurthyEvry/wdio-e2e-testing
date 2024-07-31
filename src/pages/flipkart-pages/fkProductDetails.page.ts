@@ -23,6 +23,15 @@ class fkProductDetailsPage {
     }
     //#endregion
 
+    //#region Click Notifiy Me Product To Cart
+    async fkNotifyProductToCart() {
+        await fkProductDetailsControl.notifyMeToCart.scrollIntoView();
+        await (fkProductDetailsControl.notifyMeToCart).waitForClickable({ timeout: 10000 });
+        (await fkProductDetailsControl.notifyMeToCart).click();
+        await browser.pause(10000);
+    }
+    //#endregion
+
 }
 //#endregion
 export default new fkProductDetailsPage();

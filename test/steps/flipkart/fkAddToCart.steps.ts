@@ -21,4 +21,8 @@ Then(/^User click on the remove button in the cart page$/, async () => {
 Then(/^Verify (.*) message is displayed$/, async (message:string) => {
 	await fkCartPage.fkVerifySuccessfullyRemovedMsg(message);
 });
+
+Then(/^Verify Outofstock (.*) is displayed$/, async (message:string) => {
+	await fkCartPage.fkNotifyMeMessage(message);
+});
 //#endregion

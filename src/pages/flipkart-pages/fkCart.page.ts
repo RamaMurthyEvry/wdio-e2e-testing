@@ -21,6 +21,13 @@ class fkCartPage {
     }
     //#endregion
 
+    //#region Notify Me Message Verification 
+    async fkNotificationMessage(message: string) {
+        const NotifyMeMessage = await fkCartPageControl.fkNotifyMessage.getText();
+        expect(NotifyMeMessage.includes(message)).toBePresent;
+    }
+    //#endregion
+
 }
 //#endregion
 
