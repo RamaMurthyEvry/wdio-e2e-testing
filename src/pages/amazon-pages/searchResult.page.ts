@@ -1,4 +1,4 @@
-import { isTextMatchInLocator, getAllProductDetails } from '../../../src/utils/Commands.ts';
+import { isTextMatchInLocator, getAllProductDetails,selectDropdown } from '../../../src/utils/Commands.ts';
 import searchResultControl from "../amazon-controls/searchResult.control.ts";
 
 export class SearchResultPage {
@@ -40,9 +40,38 @@ export class SearchResultPage {
                 console.error(`Error in getAllProductNames: ${error}`);
         }
     }
+    
+    async applySorting(sort:string){
+     await selectDropdown(searchResultControl.sortDropDown,sort)
+     await browser.pause(5000);
+     console.log("filter applied succesfully");
+    }
 
+    async verifySorting(sort:string)
+    {
+        
+        let locator = searchResultControl.productPrice
+        for (let i = 0; i < ((await locator).length)-1; i++) {
+            let prodDescription = parseInt((await locator[i].getText()).replace(/,/g, ''));
+            let prodDescription2 = parseInt((await locator[i+1].getText()).replace(/,/g, ''));
+          if(sort=='price-asc-rank'){
+            if(!(prodDescription<=prodDescription2))
+                {
+                    throw("The prices are not sorted")
+                }
+          }
+          if(sort=='price-desc-rank'){
+            if(!(prodDescription>=prodDescription2))
+                {
+                    throw("The prices are not sorted")
+                }
+          }
+                     
+        }
+        console.log("The products are sorted")
 
-
+    }
+    
 }
 
 export default new SearchResultPage();

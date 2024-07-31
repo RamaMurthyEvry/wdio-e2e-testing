@@ -9,6 +9,7 @@ export class SearchResultControl
     public get addToCartBtn() { return $('//input[@id="add-to-cart-button" and @type="submit"]') }
     public get successMsg() {return $('//div[@id="attach-added-to-cart-message"]')}
     public get cartBtn() {return $('//form[@id="attach-view-cart-button-form"]')}
-   
+    public get sortDropDown() {return $$('//*[@class="a-dropdown-container"]//option')}
+    
 }
 export default new SearchResultControl();

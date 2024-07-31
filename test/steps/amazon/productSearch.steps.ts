@@ -1,6 +1,7 @@
-import { Given, Then} from '@cucumber/cucumber';
+import { Given, Then } from '@cucumber/cucumber';
 import { openUrl } from '../../../src/utils/Commands.ts';
 import SearchResultPage from '../../../src/pages/amazon-pages/searchResult.page.ts'
+import { When } from '@wdio/cucumber-framework';
 
 Given(/^Open the application url (.*) in browser$/, async (pageUrl: string) => {
 	await openUrl(pageUrl);
@@ -15,12 +16,9 @@ Then(/^Verify that the product name appears in the search results (.*)$/, async 
 
 });
 
-
-
-
-
-
-
-
-
-
+When(/^Apply sorting by (.*) and verify$/, async (sort: string,) => {
+	await SearchResultPage.applySorting(sort)
+	if (sort == 'price-asc-rank' || sort == 'price-desc-rank') {
+		await SearchResultPage.verifySorting(sort);
+	}
+});
