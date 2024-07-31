@@ -67,9 +67,9 @@ export const config: Options.Testrunner = {
         browserName: 'chrome',
         acceptInsecureCerts: true,
         // added incognito mode 
-        //"goog:chromeOptions": {
-         //   args: ['--incognito'] 
-        // }
+        "goog:chromeOptions": {
+            args: ['--incognito'] 
+         }
         //     "prefs": {
         //         "download.defualt_directory": path.join(process.cwd(), 'downloads')
                 
