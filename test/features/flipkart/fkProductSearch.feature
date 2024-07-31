@@ -6,8 +6,8 @@ Feature: FlipKart Product Search Functionality
         Then Verify that "Login" in the home page
         When User searches for the <product>
         Then Verify that the <product> text is displyed in search results
-        Then Verify that the <product> name list appears in the search results
+        And Verify that the <product> name list appears in the search results
 
         Examples:
             | pageUrl                   | product |
-            | https://www.flipkart.com/ | Samsung |
+            | https://www.flipkart.com/ | SAMSUNG |
