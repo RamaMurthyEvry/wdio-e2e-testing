@@ -20,6 +20,8 @@
     "test": "wdio run ./wdio.conf.ts --cucumberOpts.tags='@swe'"
   },
   "dependencies": {
-    "@wdio/globals": "^8.39.1"
+    "@wdio/globals": "^8.39.1",
+    "expect-webdriverio": "^4.15.1",
+    "webdriverio": "^8.39.1"
   }
 }
