@@ -1,5 +1,7 @@
 import { isTextMatchInLocator, getAllProductDetails, selectDropdown, click } from '../../../src/utils/Commands.ts';
+import cartControl from '../amazon-controls/cart.control.ts';
 import searchResultControl from "../amazon-controls/searchResult.control.ts";
+
 
 export class SearchResultPage {
     async verifySearchedText(text: string) {
@@ -48,7 +50,6 @@ export class SearchResultPage {
     }
 
     async verifySorting(sort: string) {
-
         let locator = searchResultControl.productPrice
         for (let i = 0; i < ((await locator).length) - 1; i++) {
             let prodDescription = parseInt((await locator[i].getText()).replace(/,/g, ''));
@@ -65,7 +66,6 @@ export class SearchResultPage {
             }
         }
         console.log("The products are sorted")
-
     }
 
     async selectFilter(filter_Option: string, value: string) {
@@ -95,8 +95,27 @@ export class SearchResultPage {
         }
     }
 
+    async addMultipleItemsAndVerifyAtCart(value: number) {
+        let productName: string[] = [];
+        for (let i = 0; i < value; i++) {
+            await searchResultControl.addTocartOpn[i].click();
+            productName.push((await searchResultControl.searchProductName[i].getText()).substring(0, 50))
+        }
+        await browser.pause(3000)
+        await (await searchResultControl.cartButton).click();
+        for (let i = 0; i < value; i++) {
+            if (await getAllProductDetails(cartControl.productNames, productName[i])) {
+                console.log('product name matched for ' + i + ' product')
+            }
+            else {
+                throw ('Product name  didnt matched' + productName[i])
+            }
+        }
+
+    }
+
     async searchGridProductClick() {
-     
+
         await searchResultControl.gridSearchResults[0].click();
         const window = await browser.getWindowHandles();
         console.log(`window handle: ${window}`);

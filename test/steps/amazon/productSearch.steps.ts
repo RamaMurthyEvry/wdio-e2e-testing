@@ -1,11 +1,6 @@
-import { Given, Then } from '@cucumber/cucumber';
-import { openUrl } from '../../../src/utils/Commands.ts';
+import { When, Then } from '@cucumber/cucumber';
 import searchResultPage from '../../../src/pages/amazon-pages/searchResult.page.ts'
-import { When } from '@wdio/cucumber-framework';
 
-Given(/^Open the application url (.*) in browser$/, async (pageUrl: string) => {
-	await openUrl(pageUrl);
-});
 
 Then(/^Verify that the search results page displays (.*) in search results$/, async (product: string) => {
 	await searchResultPage.verifySearchedText(product)
@@ -30,7 +25,10 @@ Then(/^Select specific product (.*) from search result page$/, async (productnam
 	await searchResultPage.openDesiredProduct(productname);
 });
 
-Then(/^The user selects first product and navigates to its details screen from search Result grid$/,async () => {
+Then(/^User add multiple Products (.*) to cart from search result$/, async (numbeOfproduct: number) => {
+	await searchResultPage.addMultipleItemsAndVerifyAtCart(numbeOfproduct)
+});
+Then(/^The user selects first product and navigates to its details screen from search Result grid$/, async () => {
 	await searchResultPage.searchGridProductClick()
 });
 
