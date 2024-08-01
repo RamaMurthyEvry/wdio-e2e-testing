@@ -25,8 +25,7 @@ Then(/^the product name (.+) should appear in the search results$/, async(produc
 //#region Steps for Scenario2
 When('user selects one product and goes to the product details screen', async () => {
     await Flipkart.selectProduct();
-    });
-    
+    });    
 When('user clicks on the "Add to Cart" button', async () => {
     await Flipkart.addToCart();
 });
@@ -56,19 +55,22 @@ Then('verify the {string} is no longer listed in the cart', async (productName: 
 When('I navigate to the Electronics section', async () => {
   await Flipkart.navigateToElectronics();
 });
-
 When('user enters {string} into the search bar', async (productName: string) => {
   await Flipkart.searchProduct(productName);
 });
-
 When('I choose an Laptop from the list', async () => {
   await Flipkart.chooseProduct();
 });
-
 When('I click on the "Add to Cart" button', async () => {
   await Flipkart.addProductToCart();
   await Flipkart.goToCart();
  });
+ When(/^I click on the "Save for Later"$/, async () => {
+  await Flipkart.saveProductForLater();
+});
+When(/^I move the item back to the cart$/, async () => {
+  await Flipkart.moveProductToCart();
+});
 //#endregion Steps for Scenario3
 
 

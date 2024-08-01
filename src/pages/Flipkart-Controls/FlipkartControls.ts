@@ -14,6 +14,9 @@ export class FlipkartControls {
     public get electronicsSection() { return $("(//*[@class='TSD49J'])[1]"); }
     public get cartItems() { return $$("//div[contains(@class, 'cart-item')]"); }
     public get chooselaptop() { return $("(//*[@class='KzDlHZ'])[1]"); }
+    public get saveForLaterButton() { return $("//div[text()='Save for later']"); }
+    public get savedItemsList() { return $$("(//*[@class='cPHDOP col-12-12'])[1]"); }
+    public get moveToCartButton() { return $("//div[text()='Move to cart']"); }
     //#endregion Flipkart Controls
     //#region Functions
     public async findProductInResults(productName: string) {
@@ -42,7 +45,8 @@ export class FlipkartControls {
     }   
     public async addProductToCart() {
         await this.addToCartBtn.click();
-    }   
-    //#endregion Functions
+    } 
+       //#endregion Functions
+  
 }
 export default new FlipkartControls();

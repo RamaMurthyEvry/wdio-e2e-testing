@@ -101,5 +101,17 @@ export class Flipkart {
          await FlipkartControls.addProductToCart();
     }
     //#endregion addProductToCart
+     //#region saveProductForLater
+     async saveProductForLater() {
+        browser.pause(4000);
+        await (await FlipkartControls.saveForLaterButton).waitForClickable();
+        await FlipkartControls.saveForLaterButton.click();
+    }
+    //#endregion saveProductForLater
+       //#region moveProductToCart
+    async moveProductToCart() {
+        await FlipkartControls.moveToCartButton.click();
+    }
+    //#endregion moveProductToCart
      }
     export default new Flipkart()
