@@ -34,5 +34,45 @@ export class cartPage {
             throw("Iteam Not Deleted")
         }
     }
+    
+    async clickOnSaveForLater(){
+        await (await cartControlPage.saveForLaterlink).scrollIntoView()
+        await cartControlPage.saveForLaterlink.click()  
+    }
+
+    async verifysavedForLaterItem(productname:string){
+        if(await getAllProductDetails(cartControlPage.savedForLaterItem, productname)){
+            console.log("Item moved to saved for Later")
+        }
+        else{
+            throw("Item not found in saved for Later")
+        }
+    }
+
+    async clickOnMoveToCart(){
+        await cartControlPage.moveToCartLink.scrollIntoView()
+        await cartControlPage.moveToCartLink.click()
+    }
+
+    async verifyCartItem(productname:string){
+        await (await cartControlPage.moveToCartLink).scrollIntoView()
+        if(await getAllProductDetails(cartControlPage.cartItem, productname)){
+            console.log("Item moved to cart succesfully")
+        }
+        else{
+            throw("Item not moved to cart from save for later")
+        }
+    }
+    
+    async verifyItemInSaveForLater(productname:string){
+    {
+            if(!(await getAllProductDetails(cartControlPage.savedForLaterItem, productname))){
+                console.log("Item is not present in saved for Later")
+            }
+            else{
+                throw("Item is found in saved for Later")
+            }
+        }
+    }
 }
 export default new cartPage();
