@@ -1,7 +1,6 @@
 Feature: Add two items in the cart
 
-   Scenario Outline: Verify details after adding a product in cart
-      
+      Scenario Outline: Verify details after adding a product in cart
             Given Open the application url <pageUrl> in browser
             Then Verify that <user> is on the home page
             When User search <productCategory> product
@@ -14,5 +13,5 @@ Feature: Add two items in the cart
             Then the product should be listed in the cart with correct details
 
             Examples:
-                  | pageUrl               | user  | productCategory | brand  | product_company | productname     |
-                  | https://www.amazon.in | Hello | mobile          | Brands | Motorola        | Motorola g64 5G |
+                  | pageUrl               | user  | productCategory | brand  | product_company | productname           |
+                  | https://www.amazon.in | Hello | mobile          | Brands | Samsung         | Samsung Galaxy M34 5G |
