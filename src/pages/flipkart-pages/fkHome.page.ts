@@ -6,17 +6,17 @@ class fkHomePage {
     
     //#region User Name Verification 
     async verifyFlipKartUserName(login: string) {
-        const isPresent = await isTextPresentInLocator(fkHomePageControl.loginUserText, login);
+        const isPresent = await isTextPresentInLocator(fkHomePageControl.fkLoginUserText, login);
         expect(isPresent).toBe(true);
     }
     //#endregion
 
     //#region Search For Product
     async fkSearchForProduct(product: string) {
-        await (await (fkHomePageControl.searchBox)).waitForDisplayed();
-        await (fkHomePageControl.searchBox).setValue(product);
-        await (fkHomePageControl.searchIcon).waitForClickable({ timeout: 50000 })
-        await fkHomePageControl.searchIcon.click();
+        await (await (fkHomePageControl.fkSearchBox)).waitForDisplayed();
+        await (fkHomePageControl.fkSearchBox).setValue(product);
+        await (fkHomePageControl.fkSearchIcon).waitForClickable({ timeout: 50000 })
+        await fkHomePageControl.fkSearchIcon.click();
     }
     //#endregion
 }
