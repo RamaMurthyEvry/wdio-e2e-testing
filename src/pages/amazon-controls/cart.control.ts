@@ -7,6 +7,10 @@ class CartControlPage
     public get deleteProduct() {return $ ('input[value="Delete"]')}
     public get itemRemovedMsg() {return $ ('//*[@class="a-link-normal sc-product-link"]')}
     public get productNoLongerListedMsg() {return $('//div[@data-action="delete"]//span[@class="a-size-base"]')}
-    
+    public get saveForLaterlink() {return $('//*[@value="Save for later"]')}
+    public get savedForLaterItem() {return $$('//div[@id="sc-saved-cart"]//*[@class="a-truncate-full"]')}
+    public get moveToCartLink() {return $('//*[@value="Move to cart"]')}
+    public get cartItem() {return $$('//div[@class="sc-item-content-group"]//*[@class="a-truncate-full"]')}
+    public get itemMovedToCart() {return $('//div[@data-asin="B09R1MMMTH"]//span[text()=" has been moved to Shopping Cart. "]')}  
 }
 export default new CartControlPage();
