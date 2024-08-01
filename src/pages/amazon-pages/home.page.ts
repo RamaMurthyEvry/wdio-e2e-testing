@@ -1,17 +1,17 @@
 import { isTextPresentInLocator } from '../../../src/utils/Commands.ts';
-import HomePageControl from '../amazon-controls/home.control.ts';
+import homePageControl from '../amazon-controls/home.control.ts';
 import { setText } from '../../../src/utils/Commands.ts';
 
 class HomePage {
 
     async verifyUserName(text: string) {
-        const isPresent = await isTextPresentInLocator(HomePageControl.helloUserText, text);
+        const isPresent = await isTextPresentInLocator(homePageControl.helloUserText, text);
         expect(isPresent).toBe(true);
     }
 
     async searchProduct(product: string) {
-        await setText(HomePageControl.searchInputField, product)
-        await HomePageControl.searchButton.click();
+        await setText(homePageControl.searchInputField, product)
+        await homePageControl.searchButton.click();
         await browser.pause(1000);
     }
 
@@ -24,7 +24,7 @@ class HomePage {
         await browser.pause(3000)
         const subMenuOptions = await browser.$(`//div[@class='mega-menu']//h3[text()='${subCategory}'] | //div[@class='mega-menu']//h3//a[text()='${subCategory}']`)
         await browser.$(subMenuOptions).click()
-        const isPresent = await isTextPresentInLocator(HomePageControl.searchDropdown, subCategory);
+        const isPresent = await isTextPresentInLocator(homePageControl.searchDropDown, subCategory);
         expect(isPresent).toBe(true);
     }
 }

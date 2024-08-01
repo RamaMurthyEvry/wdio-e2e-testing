@@ -1,7 +1,6 @@
 import { When, Then } from '@cucumber/cucumber';
 import cartPage from '../../../src/pages/amazon-pages/cart.page.ts'
 import searchResultPage from '../../../src/pages/amazon-pages/searchResult.page.ts';
-import PruductDetailsPage from '../../../src/pages/amazon-pages/productDetails.page.ts'
 import productDetailsPage from '../../../src/pages/amazon-pages/productDetails.page.ts';
 
 
@@ -23,7 +22,7 @@ Then(/^Verify that all displayed products fall within the specified price range 
 });
 
 When(/^the user selects first product and navigates to its details screen$/, async() => {
-	await PruductDetailsPage.searchProductclick();
+	await productDetailsPage.searchProductclick();
 	await browser.pause(3000);
 });
 
@@ -34,12 +33,12 @@ When(/^Apply filter to display products priced between Rs "([^"]*)" and Rs "([^"
 
 Then(/^Add product to the cart from product description page$/, async() => {
 	await setProductDetails()
-	await PruductDetailsPage.clickOnAddToCart()
-    await PruductDetailsPage.verifySuccessMsg()
+	await productDetailsPage.clickOnAddToCart()
+    await productDetailsPage.verifySuccessMsg()
     });
 
 When(/^the user opens the shopping cart$/, async() => {
-	await  PruductDetailsPage.clickOnCartButton()    
+	await  productDetailsPage.clickOnCartButton()    
 });
 
 Then(/^the product should be listed in the cart with correct details$/, async() => {

@@ -1,5 +1,4 @@
 import searchResultControl from '../amazon-controls/searchResult.control.ts';
-import ProductDetailsContorl from '../amazon-controls/productDetails.contorl.ts'
 import productDetailsContorl from '../amazon-controls/productDetails.contorl.ts';
 
 class PruductDetailsPage {
@@ -13,11 +12,11 @@ class PruductDetailsPage {
     }
 
     async getProductName() {
-        return (await ProductDetailsContorl.productName.getText()).substring(0, 50);
+        return (await productDetailsContorl.productName.getText()).substring(0, 50);
     }
 
     async getProductPrice() {
-        return parseInt((await ProductDetailsContorl.productPrice.getText()).replace(/,/g, ''));
+        return parseInt((await productDetailsContorl.productPrice.getText()).replace(/,/g, ''));
     }
 
     async getProductQty() {

@@ -12,8 +12,7 @@ export class SearchResultControl {
     public get addTocartOpn() { return $$("//button[text()='Add to cart']") }
     public get multipleResultTitle() { return $$("//h2[contains(@class,'a-size-mini')]") }
     public get searchProductName() { return $$("//span[@class='a-size-medium a-color-base a-text-normal']") }
-    public get gridSearchResults() {return $$('//span[@class="a-size-base-plus a-color-base a-text-normal"]')}
-    public get cartButton() {{return $('//div[@id="nav-cart-count-container"]')}}
-   
+    public get gridSearchResults() { return $$('//span[@class="a-size-base-plus a-color-base a-text-normal"]') }
+    public get cartButton() { { return $('//div[@id="nav-cart-count-container"]') } }
 }
 export default new SearchResultControl();
