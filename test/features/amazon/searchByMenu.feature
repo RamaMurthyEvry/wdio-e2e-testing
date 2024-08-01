@@ -8,5 +8,5 @@ Feature: selecting for submenu from Menu options
         Then user select <Menu> and <subMenu>
 
         Examples:
-            | pageUrl               | user  | mainMenu    | Menu    | subMenu |
-            | https://www.amazon.in | Hello | Electronics | Cameras | Cameras |
+            | pageUrl               | user  | mainMenu | Menu  | subMenu  |
+            | https://www.amazon.in | Hello | Mobiles  | Audio | Speakers |

@@ -36,7 +36,7 @@ Then(/^Add product to the cart from product description page$/, async() => {
 	await setProductDetails()
 	await PruductDetailsPage.clickOnAddToCart()
     await PruductDetailsPage.verifySuccessMsg()
-});
+    });
 
 When(/^the user opens the shopping cart$/, async() => {
 	await  PruductDetailsPage.clickOnCartButton()    
@@ -50,7 +50,7 @@ Then(/^Remove item from the cart and verify$/, async() => {
     await cartPage.clickOnDeleteLink();
     await cartPage.verifyItemRemoved(productName);
     await cartPage.verifyProductNoLongerListed(productName);
-});
+    });
 
 Then(/^I save the (.+) for later and verify$/, async(productname:string) => {
 	await cartPage.clickOnSaveForLater()
