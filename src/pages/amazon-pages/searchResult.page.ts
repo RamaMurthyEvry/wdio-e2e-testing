@@ -101,7 +101,8 @@ export class SearchResultPage {
             await searchResultControl.addTocartOpn[i].click();
             productName.push((await searchResultControl.searchProductName[i].getText()).substring(0, 50))
         }
-        await (await searchResultControl.openCart).click();
+        await browser.pause(3000)
+        await (await searchResultControl.cartButton).click();
         for (let i = 0; i < value; i++) {
             if (await getAllProductDetails(cartControl.productNames, productName[i])) {
                 console.log('product name matched for ' + i + ' product')
