@@ -13,7 +13,6 @@ Then(/^Verify that the search results page displays (.*) in search results$/, as
 
 Then(/^Verify that the product name appears in the search results (.*)$/, async (product: string) => {
 	await searchResultPage.verifyProductInSearchResult(product)
-
 });
 
 When(/^Apply sorting by (.*) and verify$/, async (sort: string,) => {
@@ -30,3 +29,8 @@ Then(/^Apply filter (.*) and select checkbox for subfilter (.*)$/, async (filter
 Then(/^Select specific product (.*) from search result page$/, async (productname: string) => {
 	await searchResultPage.openDesiredProduct(productname);
 });
+
+Then(/^The user selects first product and navigates to its details screen from search Result grid$/,async () => {
+	await searchResultPage.searchGridProductClick()
+});
+

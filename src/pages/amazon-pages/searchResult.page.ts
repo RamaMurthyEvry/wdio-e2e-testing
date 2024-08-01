@@ -63,18 +63,17 @@ export class SearchResultPage {
                     throw ("The prices are not sorted")
                 }
             }
-
         }
         console.log("The products are sorted")
 
     }
 
     async selectFilter(filter_Option: string, value: string) {
-        const seeMore = await browser.$(`//span[text()='${filter_Option}']//..//..//span[text()='See more']`)
-        if (await seeMore.isExisting) {
-            await seeMore.click();
-        }
-        await click(browser.$(`//span[text()='${value}']`));
+        // const seeMore = await browser.$(`//span[text()='${filter_Option}']//..//..//span[text()='See more']`)
+        // if (await seeMore.isExisting) {
+        //     await seeMore.click();
+        // }
+        await click(browser.$(`//*[text()='${filter_Option}']//..//..//span[text()='${value}'][@class='a-size-base a-color-base']`));
     }
 
     async openDesiredProduct(text: string) {
@@ -95,6 +94,15 @@ export class SearchResultPage {
             }
         }
     }
-}
 
+    async searchGridProductClick() {
+     
+        await searchResultControl.gridSearchResults[0].click();
+        const window = await browser.getWindowHandles();
+        console.log(`window handle: ${window}`);
+        await browser.pause(3000);
+        await browser.switchToWindow(window[1]);
+        // let title = await browser.getTitle();
+    }
+}
 export default new SearchResultPage();
