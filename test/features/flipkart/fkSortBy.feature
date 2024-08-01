@@ -6,10 +6,10 @@ Feature: FlipKart Product Sort By Functionality
         Then Verify that "Login" in the home page
         When User searches for the <product>
         Then Verify that the <product> text is displyed in search results
-        Then Sort by Popularity tab
-        Then Sort by Price -- Low to High tab
-        Then Sort by Price -- High to Low
-        Then Sort by Newest First
+        And Sort by Popularity tab
+        And Sort by Price -- Low to High tab
+        And Sort by Price -- High to Low
+        And Sort by Newest First
 
         Examples:
             | pageUrl                   | product |
