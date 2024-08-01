@@ -11,6 +11,7 @@ class fkProductDetailsPage {
         console.log(`window handle: ${window}`);
         await browser.pause(3000);
         await browser.switchToWindow(window[1]);
+        await browser.pause(3000);
     }
     //#endregion
 
@@ -23,6 +24,14 @@ class fkProductDetailsPage {
     }
     //#endregion
 
+    //#region Switch to Window
+    async fkSwitchWindow() {
+        const window = await browser.getWindowHandles();
+        console.log(`window handle: ${window}`);
+        await browser.pause(3000);
+        await browser.switchToWindow(window[2]);
+    }
+    //#endregion
 }
 //#endregion
 export default new fkProductDetailsPage();
