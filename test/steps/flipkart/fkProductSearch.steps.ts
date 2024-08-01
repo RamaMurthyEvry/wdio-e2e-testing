@@ -14,6 +14,16 @@ Then(/^Verify that the (.*) name list appears in the search results$/, async (pr
 Then(/^User click on Add To Cart button in product details screen$/, async () => {
 	await fkProductDetailsPage.fkAddProductToCart();
 });
+
+Then(/^Navigate back to product search Page and search (.+)$/, async (product2:string) => {
+	await fkSearchResultPage.fkNavigateBackToProductSearch(product2);
+});
+
+
+Then(/^Switch back to product details screen$/, async () => {
+	await fkProductDetailsPage.fkSwitchWindow();
+});
+
 //#endregion
 
 

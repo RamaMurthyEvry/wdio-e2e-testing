@@ -1,4 +1,5 @@
 import { isTextMatchInLocator, getAllProductDetails } from '../../../src/utils/Commands.ts';
+import fkHomeControl from '../flipkart-controls/fkHome.control.ts';
 import fkSearchResultControl from "../flipkart-controls/fkSearchResult.control.ts";
 
 //#region Flipkart Search Result
@@ -28,6 +29,17 @@ export class fkSearchResultPage {
         browser.pause(10000);
     }
     //#endregion
+    //#region Navigate Back To Product Search Page
+    public async fkNavigateBackToProductSearch(product2: string) {
+        const handles = await browser.getWindowHandles();
+        await browser.switchToWindow(handles[0]);
+        await (await fkSearchResultControl.fkSearchForProduct2).clearValue();
+        await (await fkSearchResultControl.fkSearchForProduct2).setValue(product2);
+        await fkHomeControl.fkSearchIcon.click();
+        await browser.pause(1000);
+    }
+    //#endregion
+
 }
 //#endregion
 
