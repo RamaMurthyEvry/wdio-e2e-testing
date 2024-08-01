@@ -4,36 +4,36 @@ import fkSortByControl from '../../pages/flipkart-controls/fkSortBy.control.ts'
 class fkSortByPage {
     //#region Verify Sort by popularity
     async verifypopularity() {
-        await (await (fkSortByControl.Popularity)).waitForClickable();
-        (await fkSortByControl.Popularity).click();
+        await (await (fkSortByControl.popularity)).waitForClickable();
+        (await fkSortByControl.popularity).click();
         await browser.pause(5000);
     }
     //#endregion
 
     //#region Verify Sort by Price -- Low to High
     async verifyPriceLowtoHigh(){
-        await (await (fkSortByControl.LowtoHigh)).waitForClickable();
-        (await fkSortByControl.LowtoHigh).click();
+        await (await (fkSortByControl.lowToHigh)).waitForClickable();
+        (await fkSortByControl.lowToHigh).click();
         await browser.pause(5000);
     }
     //#endregion
 
     //#region Verify Sort by Price -- High to Low
     async verifyPriceHightoLow(){
-        await (await (fkSortByControl.HightoLow)).waitForClickable();
-        (await fkSortByControl.HightoLow).click();
+        await (await (fkSortByControl.highToLow)).waitForClickable();
+        (await fkSortByControl.highToLow).click();
         await browser.pause(5000);
     }
     //#endregion
 
     //#region Verify Newest First
     async verifyNewestFirst(){
-        await (await (fkSortByControl.NewestFirst)).waitForClickable();
-        (await fkSortByControl.NewestFirst).click();
+        await (await (fkSortByControl.newestFirst)).waitForClickable();
+        (await fkSortByControl.newestFirst).click();
         await browser.pause(5000);
     }
     //#endregion
-    
+
 }
 //#endregion
 
