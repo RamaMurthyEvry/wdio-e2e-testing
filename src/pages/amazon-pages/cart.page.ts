@@ -73,5 +73,13 @@ export class cartPage {
             }
         }
     }
+
+    async deleteAllItemFromCartAndVerify() {
+        for (const button of (await cartControlPage.deleteAllItems)) {
+            await button.click();
+            await browser.pause(2000);
+        }
+        await expect(await cartControlPage.emptyCartMessage).toHaveText('Your Amazon Cart is empty.');
+    }
 }
 export default new cartPage();

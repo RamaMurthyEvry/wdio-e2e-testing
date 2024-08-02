@@ -25,7 +25,7 @@ Then(/^Select specific product (.*) from search result page$/, async (productnam
 	await searchResultPage.openDesiredProduct(productname);
 });
 
-Then(/^User add multiple Products (.*) to cart from search result$/, async (numbeOfproduct: number) => {
+Then(/^User add multiple Products (.*) to cart from search result and verify$/, async (numbeOfproduct: number) => {
 	await searchResultPage.addMultipleItemsAndVerifyAtCart(numbeOfproduct)
 });
 Then(/^The user selects first product and navigates to its details screen from search Result grid$/, async () => {
