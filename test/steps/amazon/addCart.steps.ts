@@ -71,6 +71,11 @@ Then(/^the (.+)should not be present in the Saved for Later section$/, async(pro
 });
 
 
+Then(/^User remove all the products from the cart and verify that cart is empty$/, async() => {
+	await cartPage.deleteAllItemFromCartAndVerify();
+    await browser.pause(2000)
+});
+
 
 
 

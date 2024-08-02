@@ -11,5 +11,7 @@ class CartControlPage {
     public get moveToCartLink() { return $('//*[@value="Move to cart"]') }
     public get cartItem() { return $$('//div[@class="sc-item-content-group"]//*[@class="a-truncate-full"]') }
     public get itemMovedToCart() { return $('//div[@data-asin="B09R1MMMTH"]//span[text()=" has been moved to Shopping Cart. "]') }
+    public get deleteAllItems(){return $$("//input[@data-action='delete']")}
+    public get emptyCartMessage(){return $("//h1[@class='a-spacing-mini a-spacing-top-base']")};
 }
 export default new CartControlPage();
