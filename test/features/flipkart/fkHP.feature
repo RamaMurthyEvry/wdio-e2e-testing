@@ -1,13 +1,13 @@
 Feature: Verify User can search for a product, and verify search results
 
-  @Flipkart
+  @Flipkart3
   Scenario Outline: Customer adds an HP laptop to the shopping cart
     Given Open the application url <pageUrl> in browser
     Then Verify that "Login" in the home page
     When User searches for the <product>
     When I choose an Laptop from the list
     And I click on the "Add to Cart" button
-    Then the product name <product> should appear in the search results
+    Then the product name <product> should appear in the search result
 
     Examples:
       | product                          | pageUrl                   |
@@ -22,7 +22,7 @@ Feature: Verify User can search for a product, and verify search results
     And I click on the "Add to Cart" button
     And I click on the "Save for Later"
     When I move the item back to the cart
-    Then Verify that the <product> text is displyed in search results
+    When the product name <product> should appear in the search result
 
     Examples:
       | product                          | pageUrl                   |

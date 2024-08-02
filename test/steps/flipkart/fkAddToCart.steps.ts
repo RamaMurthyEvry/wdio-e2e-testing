@@ -21,4 +21,4 @@ Then(/^User click on the remove button in the cart page$/, async () => {
 Then(/^Verify (.*) message is displayed$/, async (message:string) => {
 	await fkCartPage.fkVerifySuccessfullyRemovedMsg(message);
 });
-//#endregion
+//#endregion Add To Cart Step Definitions

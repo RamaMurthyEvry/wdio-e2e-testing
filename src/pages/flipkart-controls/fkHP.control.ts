@@ -6,6 +6,6 @@ export class fkHPControls {
     public get saveForLaterButton() { return $("//div[text()='Save for later']"); }
     public get savedItemsList() { return $$("(//*[@class='cPHDOP col-12-12'])[1]"); }
     public get moveToCartButton() { return $("//div[text()='Move to cart']"); }
-//#endregion fkfkHPControls
-}
+     //#endregion fkHPControls
+   }
 export default new fkHPControls();

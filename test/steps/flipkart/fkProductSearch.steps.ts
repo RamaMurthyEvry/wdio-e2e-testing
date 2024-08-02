@@ -14,6 +14,7 @@ Then(/^Verify that the (.*) name list appears in the search results$/, async (pr
 Then(/^User click on Add To Cart button in product details screen$/, async () => {
 	await fkProductDetailsPage.fkAddProductToCart();
 });
+
 //#endregion
 
 

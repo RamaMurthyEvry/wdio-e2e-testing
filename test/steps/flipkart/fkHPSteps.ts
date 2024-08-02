@@ -13,3 +13,7 @@ When('I choose an Laptop from the list', async () => {
   When(/^I move the item back to the cart$/, async () => {
     await fkHpPage.moveProductToCart();
   });
+  When(/^the product name (.+) should appear in the search result$/, async(product:string) => {
+    const productFound = await fkHpPage.verifyProductInResults(product);
+    await expect(productFound).toBeTruthy(); 
+  });
