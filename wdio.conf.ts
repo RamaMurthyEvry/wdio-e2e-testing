@@ -67,10 +67,10 @@ export const config: Options.Testrunner = {
         browserName: 'chrome',
         acceptInsecureCerts: true,
         // added incognito mode 
-        "goog:chromeOptions": {
-            args: ['--incognito'] 
-        }
-        //     "prefs": {
+        // "goog:chromeOptions": {
+        //     args: ['--incognito'] 
+        // }
+        // //     "prefs": {
         //         "download.defualt_directory": path.join(process.cwd(), 'downloads')
                 
         //     }
@@ -156,7 +156,7 @@ export const config: Options.Testrunner = {
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
-        require: ['./test/steps/**/*.ts'],
+            require: ['./test/steps/**/*.ts'],
         // <boolean> show full backtrace for errors
         backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)

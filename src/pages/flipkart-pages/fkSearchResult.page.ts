@@ -13,7 +13,7 @@ export class fkSearchResultPage {
 
     //#region Verify Product In Search Result 
     async fkVerifyProductInSearchResult(product: string) {
-        const isProductNamePresent = await getAllProductDetails(fkSearchResultControl.fkSearchResults, product);
+        const isProductNamePresent = await getAllProductDetails(fkSearchResultControl.fkHpResults, product);
         expect(isProductNamePresent).toBe(true);
     }
     //#endregion
