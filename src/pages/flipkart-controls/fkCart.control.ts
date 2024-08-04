@@ -1,6 +1,6 @@
 import { $ } from '@wdio/globals';
 
-//#region Cart Page Control
+//#region WebElement and Locators
 export class fkCartPageControl 
 {
     public get fkConfirmRemoveButton() { return $ (`//div[@class='gRTtwM f-DWwy']//div[contains(.,'Remove')]`); }
@@ -8,4 +8,5 @@ export class fkCartPageControl
     public get fkSuccessfullRemovedMsg() { return $ (`//div[@class='eIDgeN' and contains(.,'Successfully removed')]`); }
 }
 //#endregion
+
 export default new fkCartPageControl();

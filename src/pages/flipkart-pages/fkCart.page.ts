@@ -3,7 +3,10 @@ import fkCartPageControl from '../flipkart-controls/fkCart.control.ts';
 //#region Flipkart Cart Page
 class fkCartPage {
 
-    //#region User Name Verification 
+/// <summary>
+/// Function to Click on Remove button
+///<para> </para>
+/// </summary>
     async fkClickOnRemoveButton() {
         await fkCartPageControl.fkRemoveButtonClick.scrollIntoView();
         await (fkCartPageControl.fkRemoveButtonClick).waitForClickable({ timeout: 10000 });
@@ -11,15 +14,16 @@ class fkCartPage {
         await browser.pause(5000);
         await fkCartPageControl.fkConfirmRemoveButton.waitForClickable();
         await fkCartPageControl.fkConfirmRemoveButton.click();
-    }
-    //#endregion
+    } 
 
-    //#region Successfully Removed Message Verification 
+/// <summary>
+/// Function to Verify Successfully Removed Msg
+///para>{string} message -The message to verify in the search results.</para>
+/// </summary>
     async fkVerifySuccessfullyRemovedMsg(message: string) {
         const RemovedSuccessMessage = await fkCartPageControl.fkSuccessfullRemovedMsg.getText();
         expect(RemovedSuccessMessage.includes(message)).toBePresent;
-    }
-    //#endregion
+    }   
 
 }
 //#endregion

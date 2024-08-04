@@ -1,6 +1,6 @@
 import { $ } from '@wdio/globals';
 
-//#region Search Result Control
+//#region WebElement and Locators
 export class fkSearchResultControl 
 {
     public get fkSearchedText () { return $(`//div[@id='container']//span[@class='BUOuZu']//span`); }
