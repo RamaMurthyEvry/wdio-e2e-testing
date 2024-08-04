@@ -1,21 +1,21 @@
 # WebdriverIO TypeScript Cucumber Project
-This project is an example setup for testing a web application using WebdriverIO with TypeScript and Cucumber.
+This project is an **WDIO-E2ETesting** Porject setup for testing a web application using WebdriverIO with TypeScript and Cucumber.
 
 ## Prerequisites
 Before you begin, ensure you have met the following requirements:
 
+Install dependencies: 
 - Node.js (v14 or later)
 - npm 
 - Git (optional, for version control)
+-java jdk latest version
 
 # Setup
 
 1. **Clone the repository:**
    ```bash
-   git clone <repository-url>
-   cd <repository-name>
-
-Install dependencies: Using npm: npm install 
+   git clone <repository-https://github.com/RamaMurthyEvry/wdio-e2e-testing/>
+   cd <repository-WDIO-E2ETesting >
 
 # Project Structure
 .
@@ -55,6 +55,7 @@ compilerOptions: TypeScript compiler options, such as target version, module typ
 include: Files to be included in the compilation.
 
 # Running Tests
+
 To run the tests, use the following command:
 
 Using npm:  wdio run ./wdio.conf.ts 
