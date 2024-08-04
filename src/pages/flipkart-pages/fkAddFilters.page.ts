@@ -26,8 +26,7 @@ class fkAddFiltersPage {
         (await fkAddFiltersControl.RAMCheckBox()).click();
         console.log(RAM)
         await browser.pause(10000);
-    }
- 
+    } 
 
 /// <summary>
 /// Function to Verify the Search Text Brand
@@ -45,8 +44,7 @@ class fkAddFiltersPage {
     async fkVerifySearchTextRAM(text: string) {
         const isPresent = await isTextPresentInLocator(fkAddFiltersControl.SearchTextRAM, text);
         expect(isPresent).toBe(true);
-    }
-    
+    }    
 }
 //#endregion
 

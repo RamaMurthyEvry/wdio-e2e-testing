@@ -24,7 +24,6 @@ class fkCartPage {
         const RemovedSuccessMessage = await fkCartPageControl.fkSuccessfullRemovedMsg.getText();
         expect(RemovedSuccessMessage.includes(message)).toBePresent;
     }   
-
 }
 //#endregion
 
