@@ -2,6 +2,7 @@ import { Then } from '@cucumber/cucumber';
 import fkAddFiltersPage from '../../../src/pages/flipkart-pages/fkAddFilters.page.ts'
 
 //#region Add Filters Step Definitions
+
 Then(/^Filters for the Brand (.*)$/, async(brand:string) => {
 	await fkAddFiltersPage.fkAddBrandFilter(brand);
 });
@@ -14,4 +15,5 @@ Then(/^Verify (.*) and (.*) filtered product added to the cart$/, async(Ram:stri
 	await fkAddFiltersPage.fkVerifySearchTextBrand(Brand)
 	await fkAddFiltersPage.fkVerifySearchTextRAM(Ram);
 });
+
 //#endregion

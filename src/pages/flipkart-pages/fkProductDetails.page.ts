@@ -4,7 +4,10 @@ import fkProductDetailsControl from '../flipkart-controls/fkProductDetails.contr
 //#region Product Details Page
 class fkProductDetailsPage {
 
-    //#region Search Product And Click link
+/// <summary>
+/// Function to Search Product And Click link
+///<para> </para>
+/// </summary>
     async fkSearchProductClick() {
         await fkSearchResultControl.fkSearchResultList[0].click();
         const window = await browser.getWindowHandles();
@@ -13,25 +16,30 @@ class fkProductDetailsPage {
         await browser.switchToWindow(window[1]);
         await browser.pause(3000);
     }
-    //#endregion
 
-    //#region Add Product To Cart
+/// <summary>
+/// Function to Add Product To Cart
+///<para> </para>
+/// </summary>
     async fkAddProductToCart() {
         await fkProductDetailsControl.addToCart.scrollIntoView();
         await (fkProductDetailsControl.addToCart).waitForClickable({ timeout: 10000 });
         (await fkProductDetailsControl.addToCart).click();
         await browser.pause(10000);
     }
-    //#endregion
 
-    //#region Switch to Window
+/// <summary>
+/// Function to Switch to Window
+///<para> </para>
+/// </summary>
     async fkSwitchWindow() {
         const window = await browser.getWindowHandles();
         console.log(`window handle: ${window}`);
         await browser.pause(3000);
         await browser.switchToWindow(window[2]);
     }
-    //#endregion
+   
 }
 //#endregion
+
 export default new fkProductDetailsPage();

@@ -1,6 +1,6 @@
 import { $ } from '@wdio/globals';
 
-//#region Home Page Control
+//#region WebElement and Locators
 export class fkHomePageControl 
 {
     public get fkLoginUserText () { return $(`//a//span[text()='Login']`); }
@@ -8,4 +8,5 @@ export class fkHomePageControl
     public get fkSearchIcon() { return $(`//button[@type='submit']`); }
 }
 //#endregion
+
 export default new fkHomePageControl();
