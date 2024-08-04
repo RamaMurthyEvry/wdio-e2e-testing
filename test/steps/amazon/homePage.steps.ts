@@ -1,5 +1,10 @@
-import { Then, When } from '@cucumber/cucumber';
+import { Given,Then, When } from '@cucumber/cucumber';
 import homePage from '../../../src/pages/amazon-pages/home.page.ts'
+import { openUrl } from '../../../src/utils/Commands.ts';
+
+Given(/^Open the application url (.*) in browser$/, async (pageUrl: string) => {
+	await openUrl(pageUrl);
+});
 
 Then(/^Verify that (.*) is on the home page$/, async (userName: string) => {
 	await homePage.verifyUserName(userName);
