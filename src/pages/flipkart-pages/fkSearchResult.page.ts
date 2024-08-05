@@ -19,7 +19,7 @@ export class fkSearchResultPage {
 ///<para>{string} product - The product name to search for.  </para>
 /// </summary>
     async fkVerifyProductInSearchResult(product: string) {
-        const isProductNamePresent = await getAllProductDetails(fkSearchResultControl.fkSearchResults, product);
+        const isProductNamePresent = await getAllProductDetails(fkSearchResultControl.fkHpResults, product);
         expect(isProductNamePresent).toBe(true);
     }
  

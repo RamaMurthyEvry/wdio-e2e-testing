@@ -3,7 +3,7 @@ import fkSearchResultPage from '../../../src/pages/flipkart-pages/fkSearchResult
 import fkProductDetailsPage from '../../../src/pages/flipkart-pages/fkProductDetails.page.ts';
 import fkCartPage from '../../../src/pages/flipkart-pages/fkCart.page.ts';
 
-//#region Add To Cart Step Definitions
+//#region 
 
 Then(/^Filters for the price within the range (.*) (.*)$/, async (min: string, max: string) => {
 	await fkSearchResultPage.fkSelectPrice(min, max);
