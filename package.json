@@ -16,7 +16,7 @@
   },
   "scripts": {
     "wdio": "wdio run ./wdio.conf.ts",
-    "report-open": "allure open allure-report",
+    "report": "allure generate allure-results --clean && allure open",    
     "report-generate": "allure generate --clean allure-results",
     "pretest": "rimraf allure-results && rimraf allure-report && rimraf test-screenshots && rimraf wdio-logs",
     "test": "wdio run ./wdio.conf.ts --cucumberOpts.tags='@Flipkart'"
