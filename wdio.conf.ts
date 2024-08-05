@@ -70,7 +70,7 @@ export const config: Options.Testrunner = {
         // "goog:chromeOptions": {
         //     args: ['--incognito'] 
         // }
-        // //     "prefs": {
+        //     "prefs": {
         //         "download.defualt_directory": path.join(process.cwd(), 'downloads')
                 
         //     }
