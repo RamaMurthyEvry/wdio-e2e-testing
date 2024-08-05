@@ -1,4 +1,0 @@
-{
-  "using": "xpath",
-  "value": "//div[@id='allparameters']//input[contains(@class,'fakeinputname') and @value]"
-}

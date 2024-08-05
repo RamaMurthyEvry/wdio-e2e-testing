@@ -1,3 +1,0 @@
-{
-  "text": "https://reqres.in/api/users/2"
-}
