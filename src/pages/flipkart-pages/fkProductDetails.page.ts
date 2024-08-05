@@ -22,6 +22,7 @@ class fkProductDetailsPage {
 ///<para> </para>
 /// </summary>
     async fkAddProductToCart() {
+        await browser.pause(5000);
         await fkProductDetailsControl.addToCart.scrollIntoView();
         await (fkProductDetailsControl.addToCart).waitForClickable({ timeout: 10000 });
         (await fkProductDetailsControl.addToCart).click();
